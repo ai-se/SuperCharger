@@ -83,13 +83,14 @@ def center_based_sampling(problem, dataset):
     return resulting_population
 
 
-def initialPopulation(problem, n, path=""):
+def initialPopulation(problem, gtechnique, n, path=""):
     #generate dataset
-    dataset = []
+
+    dataset = gtechnique(problem, n)
     for run in range(n):
         dataset.append(problem.generateInput(center=False))
 
-    # dataset = center_based_sampling(problem, dataset)
+    dataset = center_based_sampling(problem, dataset)
 
     #write the dataset to file
     if path == "":

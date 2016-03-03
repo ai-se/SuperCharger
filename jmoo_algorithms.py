@@ -37,22 +37,10 @@ import os, sys, inspect
 def do_nothing_initializer(problem, population):
     return population, 0
 
-
-from Algorithms.GALE.gale_components import *
 from Algorithms.DE.de_components import *
 from Algorithms.MOEA_D.moead_components import *
 from Algorithms.NSGAIII.nsgaiii_components import *
-from Algorithms.STORM.storm_components import *
 from Algorithms.NSGAIII.nsgaiii_components import *
-from Algorithms.GALE0.gale_components import *
-from Algorithms.GALE_no_mutation.gale_components import *
-from Algorithms.GALE2.gale_components import *
-from Algorithms.GALE4.gale_components import *
-from Algorithms.GALE8.gale_components import *
-from Algorithms.GALE16.gale_components import *
-from Algorithms.GALE32.gale_components import *
-from Algorithms.GALE64.gale_components import *
-from Algorithms.LearnerActive.LearnerActiveComponent import *
 
 from jmoo_individual import *
 
@@ -98,58 +86,6 @@ class jmoo_SPEA2:
         self.recombiner = selSPEA2
         self.color = color
         self.type = 'h'
-
-
-class jmoo_GALE:
-    def __init__(self, color="Red"):
-        self.name = "GALE"
-        self.initializer = None
-        self.selector = galeWHERE
-        self.adjustor = galeMutate
-        self.recombiner = galeRegen
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_GALE0:
-    def __init__(self, color="Brown"):
-        self.name = "GALE0"
-        self.initializer = None
-        self.selector = gale0WHERE
-        self.adjustor = gale0Mutate
-        self.recombiner = gale0Regen
-        self.color = color
-        self.type = '*'
-
-class jmoo_GALE_no_mutation:
-    def __init__(self, color="Orange"):
-        self.name = "GALE_no_mutation"
-        self.initializer = None
-        self.selector = gale_nm_WHERE
-        self.adjustor = gale_nm_Mutate
-        self.recombiner = gale_nm_Regen
-        self.color = color
-        self.type = '*'
-
-class jmoo_GALE4:
-    def __init__(self, color="#0066ff"):
-        self.name = "GALE4"
-        self.initializer = None
-        self.selector = gale_4_WHERE
-        self.adjustor = gale_4_Mutate
-        self.recombiner = gale_4_Regen
-        self.color = color
-        self.type = '*'
-
-class jmoo_GALE2:
-    def __init__(self, color="Black"):
-        self.name = "GALE2"
-        self.initializer = None
-        self.selector = gale2WHERE
-        self.adjustor = gale2Mutate
-        self.recombiner = gale2Regen
-        self.color = color
-        self.type = '*'
 
 
 class jmoo_DE:

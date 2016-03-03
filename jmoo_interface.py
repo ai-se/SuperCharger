@@ -76,7 +76,7 @@ for i,arg in enumerate(sys.argv):
 # Build new initial populations if suggested.  Before tests can be performed, a problem requires an initial dataset.
 if build_new_pop:
     for problem in problems:
-        initialPopulation(problem, Configurations["Universal"]["Population_Size"])
+        initialPopulation(problem, Configurations["Universal"]["Generation_Technique"], Configurations["Universal"]["Population_Size"])
 
 
 # Wrap the tests in the jmoo core framework

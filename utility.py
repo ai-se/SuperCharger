@@ -252,17 +252,12 @@ def cdom(x1, x2, mins=None, maxs=None):
     return loss(x1, x2, mins, maxs) / loss(x2, x1, mins, maxs)
 
 
-def spacing(dataset):
-    dim = len(dataset[0])
-    d_ = []
-    for i, fit_i in enumerate(dataset):
-        fma = []
-        for j, fit_j in enumerate(dataset):
-            if not i == j:
-                fma.append(sum([abs(fit_i[k] - fit_j[k]) for k in range(dim)]))
-        d_.append(min(fma))
+def spacing(distance_matrix):
+    dim = len(distance_matrix[0])
+    leng = len(distance_matrix)
+    d_= [min(distance_matrix[i]) for i in xrange(leng)]
     d_bar = avg(d_)
-    ssm = ((1 / float(len(dataset) - 1)) * sum([(d_bar - d_i) ** 2 for d_i in d_])) ** 0.5
+    ssm = ((1 / float(leng - 1)) * sum([(d_bar - d_i) ** 2 for d_i in d_])) ** 0.5
     return ssm
 
 

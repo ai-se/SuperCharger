@@ -19,22 +19,13 @@
 from Row import *
 from lib import *
 from Table import *
-  
-def slurpFile(csvFile):
-  t=want=None
-  for _,cells in rows(csvFile):
-    if t:
-       if len(cells) == want: 
-         t.put(t.read(cells)) 
-    else:
-       want, t = len(cells),  Table(cells)
-  return t
-  
+
+
 def slurp(list, names):
     t=want=None
     for rows in list:
         if t:
-            if (len(rows) == want):
+            if len(rows) == want:
                 t.put(rows)
         else:
             want, t = len(rows), Table(names)

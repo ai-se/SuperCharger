@@ -34,6 +34,7 @@ from jmoo_problems import *
 # from Problems.CPM.cpm_reduction import *
 from Problems.NRP.nrp import *
 # from Problems.MONRP.monrp import *
+from InitialPopulationGeneration.pop_generators import standard_random, sway
 from Problems.POM3.POM3B import POM3B
 from Problems.POM3.POM3A import POM3A
 from Problems.POM3.POM3C import POM3C
@@ -51,33 +52,15 @@ from Problems.MONRP.monrp import MONRP
 
 # JMOO Experimental Definitions
 algorithms = [
-            # jmoo_GALE(),
-            # jmoo_GALE64(),
-            # jmoo_GALE32(),
-            # jmoo_GALE8(),
-            # jmoo_GALE16(),
-            # jmoo_NSGAIII(),
-            # jmoo_NSGAII(),
-            # jmoo_NSGAII_2()
-            jmoo_GALE0(),
-            # jmoo_NSGAII(),
-            # jmoo_SPEA2(),
-            # jmoo_GALE(),
-            # jmoo_GALE_no_mutation()
+            jmoo_NSGAIII(),
               ]
 
-problems =[
-    # FeatureTreeModel("Web_Portal"),
-    # FeatureTreeModel("eshop"),
-    # FeatureTreeModel("cellphone"),
-    # FeatureTreeModel("EIS")
-    # POM3A(), POM3B(), POM3C(), POM3D()
-    ]
 
 problems =[
-    POM3A(),
-    POM3B(), POM3C(), POM3D(),
-    XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
+    dtlz1(5, 2)
+    # POM3A(),
+    # POM3B(), POM3C(), POM3D(),
+    # XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
     # NRP(50, 5, 5, 0, 80),
     # MONRP(50, 5, 5, 0, 80)
 
@@ -88,8 +71,9 @@ build_new_pop = False                                       # Whether or not to 
 Configurations = {
     "Universal": {
         "Repeats" : 9,
-        "Population_Size" : 5000,
-        "No_of_Generations" : 1
+        "Population_Size" : 92,
+        "No_of_Generations" : 1,
+        "Generation_Technique" : sway
     },
     "NSGAIII": {
         "SBX_Probability": 1,

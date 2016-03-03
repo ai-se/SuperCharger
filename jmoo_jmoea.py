@@ -30,7 +30,6 @@
 from jmoo_algorithms import *
 from jmoo_stats_box import *
 from jmoo_properties import *
-from Algorithms.GALE.Fastmap.Moo import *
 # from pylab import *
 import jmoo_properties
 
