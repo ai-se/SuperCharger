@@ -187,23 +187,14 @@ def jmoo_evo(problem, algorithm, gtechnique, configurations, toStop = bstop):
         # # # # # # # # # # #
         # 4d) Collect Stats #
         # # # # # # # # # # #
-        if algorithm.name == "GALE0" or algorithm.name == "GALE_no_mutation":
-            statBox.update(selectees, gen, numNewEvals, population_size=Configurations["Universal"]["Population_Size"])
-            store_values(latest_subdir, gen, selectees)
-        elif algorithm.name == "GALE4":
-            statBox.update(selectees, gen, len(selectees), population_size=Configurations["Universal"]["Population_Size"])
-            store_values_g4(latest_subdir, gen, selectees)
-        else:
-            statBox.update(population, gen, numNewEvals)
-            store_values(latest_subdir, gen, population)
+        statBox.update(population, gen, numNewEvals)
+        store_values(latest_subdir, gen, population)
 
 
         # # # # # # # # # # # # # # # # # #
         # 4e) Evaluate Stopping Criteria  #
         # # # # # # # # # # # # # # # # # #
-        if algorithm.name != "GALE4":
-            stoppingCriteria = toStop(statBox)
-        # stoppingCriteria = False
+        stoppingCriteria = toStop(statBox)
 
 
     return statBox

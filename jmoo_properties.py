@@ -59,7 +59,7 @@ algorithms = [
 
 problems =[
     # dtlz1(9, 5)
-    POM3A(),
+    # POM3A(),
     POM3B(), POM3C(), POM3D(),
     XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
     # NRP(50, 5, 5, 0, 80),
@@ -75,7 +75,7 @@ Configurations = {
     "Universal": {
         "Repeats" : 20,
         "Population_Size" : 92,
-        "No_of_Generations" : 10,
+        "No_of_Generations" : 1000,
     },
     "NSGAIII": {
         "SBX_Probability": 1,

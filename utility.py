@@ -230,7 +230,7 @@ def loss(x1, x2, mins=None, maxs=None):
         x2 = [normalize(x, mins[i], maxs[i]) for i, x in enumerate(x2)]
 
     o = min(len(x1), len(x2))  # len of x1 and x2 should be equal
-    return sum([math.exp((x2i - x1i) / o) for x1i, x2i in zip(x1, x2)]) / o
+    return sum([numpy.exp((x2i - x1i) / o) for x1i, x2i in zip(x1, x2)]) / o
 
 
 def loss2(x1, pop, mins=None, maxs=None, weights=None):  # removal of pop-x1 vs pop

@@ -166,39 +166,45 @@ def joes_diagrams(problems, algorithms, Configurations, tag="JoeDiagram"):
                 cla()
 
 
-def hypervolume_graphs(problems, algorithms, Configurations, aggregate_measure=mean, tag="HyperVolume"):
-    def get_data_from_archive(problems, algorithms, Configurations, function):
+def hypervolume_graphs(problems, algorithms, gtechniques, Configurations, aggregate_measure=mean, tag="HyperVolume"):
+    def get_data_from_archive(gtechniques, problems, algorithms, Configurations, function):
         from PerformanceMeasures.DataFrame import ProblemFrame
         problem_dict = {}
         for problem in problems:
-            data = ProblemFrame(problem, algorithms)
-            reference_point = data.get_reference_point(Configurations["Universal"]["No_of_Generations"])
-            generation_dict = {}
-            for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
-                population = data.get_frontier_values(generation)
-                evaluations = data.get_evaluation_values(generation)
-                algorithm_dict = {}
-                for algorithm in algorithms:
-                    repeat_dict = {}
-                    for repeat in xrange(Configurations["Universal"]["Repeats"]):
-                        candidates = [pop.objectives for pop in population[algorithm.name][repeat]]
-                        repeat_dict[str(repeat)] = {}
-                        if len(candidates) > 0:
-                            repeat_dict[str(repeat)]["HyperVolume"] = function(reference_point, candidates)
-                            if repeat_dict[str(repeat)]["HyperVolume"] == 0:
-                                pass
-                            repeat_dict[str(repeat)]["Evaluations"] = evaluations[algorithm.name][repeat]
-                        else:
-                            repeat_dict[str(repeat)]["HyperVolume"] = None
-                            repeat_dict[str(repeat)]["Evaluations"] = None
+            actual_name = problem.name
+            for gtechnique in gtechniques:
+                problem.name = actual_name + "_" + gtechnique.__name__
+                data = ProblemFrame(problem, algorithms)
 
-                    algorithm_dict[algorithm.name] = repeat_dict
-                generation_dict[str(generation)] = algorithm_dict
-            problem_dict[problem.name] = generation_dict
+                reference_point = data.get_reference_point(Configurations["Universal"]["No_of_Generations"])
+
+                generation_dict = {}
+                for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
+                    population = data.get_frontier_values(generation)
+                    evaluations = data.get_evaluation_values(generation)
+                    algorithm_dict = {}
+                    for algorithm in algorithms:
+                        repeat_dict = {}
+                        for repeat in xrange(Configurations["Universal"]["Repeats"]):
+                            candidates = [pop.objectives for pop in population[algorithm.name][repeat]]
+                            repeat_dict[str(repeat)] = {}
+                            if len(candidates) > 0:
+                                repeat_dict[str(repeat)]["HyperVolume"] = function(reference_point, candidates)
+                                if repeat_dict[str(repeat)]["HyperVolume"] == 0:
+                                    pass
+                                repeat_dict[str(repeat)]["Evaluations"] = evaluations[algorithm.name][repeat]
+                            else:
+                                repeat_dict[str(repeat)]["HyperVolume"] = None
+                                repeat_dict[str(repeat)]["Evaluations"] = None
+
+                        algorithm_dict[algorithm.name] = repeat_dict
+                    generation_dict[str(generation)] = algorithm_dict
+                problem_dict[problem.name] = generation_dict
+            problem.name = actual_name
         return problem_dict
 
     from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
-    result = get_data_from_archive(problems, algorithms, Configurations, get_hyper_volume)
+    result = get_data_from_archive(gtechniques, problems, algorithms, Configurations, get_hyper_volume)
     import pdb
     pdb.set_trace()
 
@@ -206,42 +212,51 @@ def hypervolume_graphs(problems, algorithms, Configurations, aggregate_measure=m
 
     problem_scores = {}
     for problem in problems:
+        actual_name = problem.name
         f, axarr = plt.subplots(1)
-        scores = {}
-        for algorithm in algorithms:
-            median_scores = []
-            median_evals = []
-            for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
-                temp_result = result[problem.name][str(generation)][algorithm.name]
-                hypervolume_list = [temp_result[str(repeat)]["HyperVolume"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["HyperVolume"] is not None]
+        for gtechnique in gtechniques:
+            scores = {}
+            for algorithm in algorithms:
+                problem.name = actual_name + "_" + gtechnique.__name__
+                median_scores = []
+                median_evals = []
+                for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
+                    temp_result = result[problem.name][str(generation)][algorithm.name]
+                    hypervolume_list = [temp_result[str(repeat)]["HyperVolume"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["HyperVolume"] is not None]
 
-                old_evals = [sum([result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in xrange(generation) if result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for repeat in xrange(Configurations["Universal"]["Repeats"])]
-                evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["Evaluations"] is not None]
+                    old_evals = [sum([result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in xrange(generation) if result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for repeat in xrange(Configurations["Universal"]["Repeats"])]
+                    evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["Evaluations"] is not None]
 
-                assert(len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
-                if len(hypervolume_list) > 0 and len(evaluation_list) > 0:
-                    median_scores.append(aggregate_measure(hypervolume_list))
-                    median_evals.append(aggregate_measure(old_evals))
-                    # if algorithm.name == "GALE_no_mutation":
-                    #     # print hypervolume_list, aggregate_measure(hypervolume_list)
-                    #     # print ">> ", old_evals, aggregate_measure(old_evals)
-                    #     print "scores : ", median_scores
-                    #     print "evals : ", median_evals
+                    assert(len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
+                    if len(hypervolume_list) > 0 and len(evaluation_list) > 0:
+                        median_scores.append(aggregate_measure(hypervolume_list))
+                        median_evals.append(aggregate_measure(old_evals))
+                        # if algorithm.name == "GALE_no_mutation":
+                        #     # print hypervolume_list, aggregate_measure(hypervolume_list)
+                        #     # print ">> ", old_evals, aggregate_measure(old_evals)
+                        #     print "scores : ", median_scores
+                        #     print "evals : ", median_evals
 
 
 
-            scores[algorithm.name] = aggregate_measure(median_scores)
-            # if algorithm.name == "GALE_no_mutation":
-            #     print median_evals
-            #     print ">> ", median_scores, id(median_scores)
-            #     exit()
-            axarr.plot(median_evals, median_scores, linestyle='None', label=algorithm.name, marker=algorithm.type, color=algorithm.color, markersize=8, markeredgecolor='none')
-            axarr.plot(median_evals, median_scores, color=algorithm.color)
-            # axarr[o].set_ylim(0, 130)
-            axarr.set_autoscale_on(True)
-            axarr.set_xlim([-10, 10000])
-            axarr.set_xscale('log', nonposx='clip')
-            axarr.set_ylabel("HyperVolume")
+                scores[algorithm.name] = aggregate_measure(median_scores)
+                # if algorithm.name == "GALE_no_mutation":
+                #     print median_evals
+                #     print ">> ", median_scores, id(median_scores)
+                #     exit()
+
+                if gtechnique.__name__ == "sway": lstyle = "--"
+                else: lstyle = '-'
+
+
+                axarr.plot(median_evals, median_scores, linestyle=lstyle, label=algorithm.name + "_" + gtechnique.__name__, marker=algorithm.type, color=algorithm.color, markersize=8, markeredgecolor='none')
+                # axarr.plot(median_evals, median_scores, color=algorithm.color)
+                # axarr[o].set_ylim(0, 130)
+                axarr.set_autoscale_on(True)
+                axarr.set_xlim([-10, 10000])
+                axarr.set_xscale('log', nonposx='clip')
+                axarr.set_ylabel("HyperVolume")
+            problem.name = actual_name
         if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
             os.makedirs('./Results/Charts/' + date_folder_prefix)
 
@@ -579,12 +594,12 @@ def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_me
             problem.name = actual_name
 
 
-    f.suptitle(problem.name)
-    fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
-    plt.legend(loc='upper center')
-    plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
-    cla()
-    problem_scores[problem.name] = scores
+        f.suptitle(problem.name)
+        fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
+        plt.legend(loc='upper center')
+        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
+        cla()
+        problem_scores[problem.name] = scores
 
     return problem_scores
 

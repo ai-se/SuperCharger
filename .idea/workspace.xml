@@ -2,222 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fa16c3e-d1ab-44b0-a16d-99c117196906" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/DTLZ1_5_2-p92-d5-o2-dataset.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/DTLZ1_9_5-p92-d9-o5-dataset.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/RRS_TABLE__DTLZ1_5_2-p92-d5-o2_NSGA3.datatable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/RRS_TABLE__DTLZ1_9_5-p92-d9-o5_NSGA3.datatable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/decision_bin_table_DTLZ1_5_2-p92-d5-o2_NSGA3.datatable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/decision_bin_table_DTLZ1_9_5-p92-d9-o5_NSGA3.datatable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/results_DTLZ1_5_2-p92-d5-o2_NSGA3.datatable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/results_DTLZ1_9_5-p92-d9-o5_NSGA3.datatable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/summary_.datatable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/summary_DTLZ1_5_2-p92-d5-o2_NSGA3.datatable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/summary_DTLZ1_9_5-p92-d9-o5_NSGA3.datatable" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/ExperimentalRecords/03-03-2016/Record_01_ExperimentRecords.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/10.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/4.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/5.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/6.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/7.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/8.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawData/PopulationArchives/NSGA3_DTLZ1_9_5/0/9.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure01_POM3A_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure02_POM3A_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure03_POM3A_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure04_POM3B_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure05_POM3B_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure06_POM3B_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure07_POM3C_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure08_POM3C_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure09_POM3C_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure10_POM3D_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure11_POM3D_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure12_POM3D_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure13_xomo_osp_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure14_xomo_osp_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure15_xomo_osp_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure16_xomoo2_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure17_xomoo2_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure18_xomoo2_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure19_xomo_ground_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure20_xomo_ground_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure21_xomo_ground_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure22_xomo_flight_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure23_xomo_flight_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure24_xomo_flight_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure25_xomo_all_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure26_xomo_all_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure27_xomo_all_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure28_NRP_50_5_5_0_80_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure29_NRP_50_5_5_0_80_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure30_NRP_50_5_5_0_80_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure31_ComparisionsHyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure32_ComparisionsSpread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/01-27-2016/figure33_ComparisionsIGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure01_POM3A_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure02_POM3A_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure03_POM3A_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure04_POM3A_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure05_POM3A_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure06_POM3A_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure07_POM3A_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure08_POM3B_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure09_POM3B_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure10_POM3B_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure11_POM3B_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure12_POM3B_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure13_POM3B_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-08-2016/figure14_POM3B_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure01_POM3A_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure02_POM3A_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure03_POM3A_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure04_POM3B_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure05_POM3B_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure06_POM3B_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure07_POM3C_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure08_POM3C_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure09_POM3C_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure10_POM3D_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure11_POM3D_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure12_POM3D_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure13_xomo_osp_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure14_xomo_osp_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure15_xomo_osp_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure16_xomoo2_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure17_xomoo2_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure18_xomoo2_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure19_xomo_ground_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure20_xomo_ground_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure21_xomo_ground_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure22_xomo_flight_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure23_xomo_flight_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure24_xomo_flight_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure25_xomo_all_HyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure26_xomo_all_Spread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure27_xomo_all_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure28_ComparisionsHyperVolume.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure29_ComparisionsSpread.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/02-09-2016/figure30_ComparisionsIGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Charts/03-03-2016/figure01_DTLZ1_9_5_IGD.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table01_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table02_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table03_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table04_POM3D_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table05_xomo_osp_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table06_xomoo2_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table07_xomo_ground_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table08_xomo_flight_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table09_xomo_all_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/01-27-2016/table10_NRP_50_5_5_0_80_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table01_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table02_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table03_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table04_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table05_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table06_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table07_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table08_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table09_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table10_POM3D_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table11_xomo_osp_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table12_xomoo2_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table13_xomo_ground_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table14_xomo_flight_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/02-09-2016/table15_xomo_all_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Final_Frontier/03-03-2016/table01_DTLZ1_9_5_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table01_GALE0_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table02_NSGAII_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table03_SPEA2_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table04_GALE_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table05_GALE_no_mutation_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table06_GALE0_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table07_NSGAII_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table08_SPEA2_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table09_GALE_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table10_GALE_no_mutation_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table11_GALE0_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table12_NSGAII_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table13_SPEA2_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table14_GALE_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table15_GALE_no_mutation_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table16_GALE0_POM3D_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table17_NSGAII_POM3D_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table18_SPEA2_POM3D_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table19_GALE_POM3D_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table20_GALE_no_mutation_POM3D_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table21_GALE0_xomo_osp_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table22_NSGAII_xomo_osp_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table23_SPEA2_xomo_osp_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table24_GALE_xomo_osp_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table25_GALE_no_mutation_xomo_osp_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table26_GALE0_xomoo2_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table27_NSGAII_xomoo2_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table28_SPEA2_xomoo2_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table29_GALE_xomoo2_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table30_GALE_no_mutation_xomoo2_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table31_GALE0_xomo_ground_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table32_NSGAII_xomo_ground_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table33_SPEA2_xomo_ground_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table34_GALE_xomo_ground_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table35_GALE_no_mutation_xomo_ground_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table36_GALE0_xomo_flight_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table37_NSGAII_xomo_flight_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table38_SPEA2_xomo_flight_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table39_GALE_xomo_flight_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table40_GALE_no_mutation_xomo_flight_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table41_GALE0_xomo_all_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table42_NSGAII_xomo_all_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table43_SPEA2_xomo_all_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table44_GALE_xomo_all_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table45_GALE_no_mutation_xomo_all_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table46_GALE0_NRP_50_5_5_0_80_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table47_NSGAII_NRP_50_5_5_0_80_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table48_SPEA2_NRP_50_5_5_0_80_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table49_GALE_NRP_50_5_5_0_80_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/01-27-2016/table50_GALE_no_mutation_NRP_50_5_5_0_80_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table01_GALE0_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table02_GALE_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table03_GALE0_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table04_GALE_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table05_GALE0_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table06_GALE_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table07_GALE0_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table08_GALE_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table09_GALE0_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table10_GALE_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table11_GALE0_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table12_GALE_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table13_GALE0_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table14_GALE_POM3A_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table15_GALE0_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table16_GALE_POM3B_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table17_GALE0_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table18_GALE_POM3C_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table19_GALE0_POM3D_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table20_GALE_POM3D_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table21_GALE0_xomo_osp_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table22_GALE_xomo_osp_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table23_GALE0_xomoo2_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table24_GALE_xomoo2_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table25_GALE0_xomo_ground_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table26_GALE_xomo_ground_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table27_GALE0_xomo_flight_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table28_GALE_xomo_flight_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table29_GALE0_xomo_all_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/02-09-2016/table30_GALE_xomo_all_IGD.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/03-03-2016/table01_NSGA3_DTLZ1_9_5_IGD.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Graphics/charter.py" afterPath="$PROJECT_DIR$/Graphics/charter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cleanup.py" afterPath="$PROJECT_DIR$/cleanup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_core.py" afterPath="$PROJECT_DIR$/jmoo_core.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_interface.py" afterPath="$PROJECT_DIR$/jmoo_interface.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_jmoea.py" afterPath="$PROJECT_DIR$/jmoo_jmoea.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_problem.py" afterPath="$PROJECT_DIR$/jmoo_problem.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_problems.py" afterPath="$PROJECT_DIR$/jmoo_problems.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_properties.py" afterPath="$PROJECT_DIR$/jmoo_properties.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility.py" afterPath="$PROJECT_DIR$/utility.py" />
     </list>
     <ignored path="SuperCharger.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -238,48 +27,97 @@
     <favorites_list name="SuperCharger" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="jmoo_properties.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65608466">
-              <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="charter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.0">
-              <caret line="583" column="25" selection-start-line="583" selection-start-column="25" selection-end-line="583" selection-end-column="25" />
-              <folding>
-                <element signature="e#1768#6730#0" expanded="false" />
-                <element signature="e#6842#11837#0" expanded="false" />
-                <element signature="e#11938#16629#0" expanded="false" />
-                <element signature="e#16738#19711#0" expanded="false" />
-                <element signature="e#19859#21319#0" expanded="false" />
-                <element signature="e#30829#33616#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pop_generators.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/InitialPopulationGeneration/pop_generators.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
-              <folding>
-                <element signature="e#750#1815#0" expanded="false" />
-                <element signature="e#1818#1887#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="jmoo_properties.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="utility.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/utility.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="232" column="21" selection-start-line="232" selection-start-column="21" selection-end-line="232" selection-end-column="21" />
+                  <folding>
+                    <element signature="e#1069#1080#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="jmoo_jmoea.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/jmoo_jmoea.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#1084#1113#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="charter.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.8495413">
+                  <caret line="272" column="40" selection-start-line="272" selection-start-column="40" selection-end-line="272" selection-end-column="40" />
+                  <folding>
+                    <element signature="e#1768#6730#0" expanded="false" />
+                    <element signature="e#6951#8891#0" expanded="false" />
+                    <element signature="e#12699#17390#0" expanded="false" />
+                    <element signature="e#17499#20472#0" expanded="false" />
+                    <element signature="e#20620#22080#0" expanded="false" />
+                    <element signature="e#22191#30986#0" expanded="false" />
+                    <element signature="e#31614#34401#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pop_generators.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/InitialPopulationGeneration/pop_generators.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+                  <folding>
+                    <element signature="e#750#1815#0" expanded="false" />
+                    <element signature="e#1818#1887#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="charter.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.7504587">
+                  <caret line="601" column="45" selection-start-line="596" selection-start-column="8" selection-end-line="601" selection-end-column="45" />
+                  <folding>
+                    <element signature="e#1768#6730#0" expanded="false" />
+                    <element signature="e#12699#17390#0" expanded="false" />
+                    <element signature="e#17499#20472#0" expanded="false" />
+                    <element signature="e#20620#22080#0" expanded="false" />
+                    <element signature="e#31614#34401#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -295,19 +133,20 @@
         <option value="$PROJECT_DIR$/InitialPopulationGeneration/Utilities/Fastmap/Slurp.py" />
         <option value="$PROJECT_DIR$/Throwaway/test1.py" />
         <option value="$PROJECT_DIR$/Throwaway/test2.py" />
-        <option value="$PROJECT_DIR$/utility.py" />
         <option value="$PROJECT_DIR$/InitialPopulationGeneration/Utilities/Fastmap/Moo.py" />
         <option value="$PROJECT_DIR$/Data/DTLZ1_5_2-p92-d5-o2-dataset.txt" />
         <option value="$PROJECT_DIR$/jmoo_problems.py" />
         <option value="$PROJECT_DIR$/jmoo_problem.py" />
         <option value="$PROJECT_DIR$/cleanup.py" />
         <option value="$PROJECT_DIR$/jmoo_interface.py" />
-        <option value="$PROJECT_DIR$/jmoo_jmoea.py" />
         <option value="$PROJECT_DIR$/Graphics/PerformanceMeasures/DataFrame.py" />
         <option value="$PROJECT_DIR$/jmoo_core.py" />
         <option value="$PROJECT_DIR$/InitialPopulationGeneration/pop_generators.py" />
-        <option value="$PROJECT_DIR$/Graphics/charter.py" />
+        <option value="$PROJECT_DIR$/utility.py" />
         <option value="$PROJECT_DIR$/jmoo_properties.py" />
+        <option value="$PROJECT_DIR$/jmoo_jmoea.py" />
+        <option value="$PROJECT_DIR$/Graphics/charter_simplified.py" />
+        <option value="$PROJECT_DIR$/Graphics/charter.py" />
       </list>
     </option>
   </component>
@@ -375,7 +214,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="InitialPopulationGeneration" />
+              <option name="myItemId" value="Data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -600,17 +439,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1008" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1008" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3483023" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34282586" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -666,14 +505,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5616883">
           <caret line="48" column="67" selection-start-line="48" selection-start-column="67" selection-end-line="48" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3814935">
-          <caret line="256" column="31" selection-start-line="256" selection-start-column="31" selection-end-line="256" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -738,16 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_jmoea.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="124" column="105" selection-start-line="124" selection-start-column="105" selection-end-line="124" selection-end-column="105" />
-          <folding>
-            <element signature="e#1084#1113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jmoo_problems.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -803,26 +624,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
+    <entry file="file://$PROJECT_DIR$/utility.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0">
-          <caret line="583" column="25" selection-start-line="583" selection-start-column="25" selection-end-line="583" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="232" column="21" selection-start-line="232" selection-start-column="21" selection-end-line="232" selection-end-column="21" />
           <folding>
-            <element signature="e#1768#6730#0" expanded="false" />
-            <element signature="e#6842#11837#0" expanded="false" />
-            <element signature="e#11938#16629#0" expanded="false" />
-            <element signature="e#16738#19711#0" expanded="false" />
-            <element signature="e#19859#21319#0" expanded="false" />
-            <element signature="e#30829#33616#0" expanded="false" />
+            <element signature="e#1069#1080#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jmoo_jmoea.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <folding>
+            <element signature="e#1084#1113#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65608466">
-          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8495413">
+          <caret line="272" column="40" selection-start-line="272" selection-start-column="40" selection-end-line="272" selection-end-column="40" />
+          <folding>
+            <element signature="e#1768#6730#0" expanded="false" />
+            <element signature="e#6951#8891#0" expanded="false" />
+            <element signature="e#12699#17390#0" expanded="false" />
+            <element signature="e#17499#20472#0" expanded="false" />
+            <element signature="e#20620#22080#0" expanded="false" />
+            <element signature="e#22191#30986#0" expanded="false" />
+            <element signature="e#31614#34401#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
