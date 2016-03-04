@@ -77,12 +77,14 @@ class jmoo_problem(object):
             print "No accounted for"
             exit()
 
+        print filename
         input = open(filename, 'rb')
         reader = csv.reader(input, delimiter=',')
         population = []
         
         #Use the csv file to build the initial population
         for k,p in enumerate(reader):
+            print k, p
             if k > MU:
                 problem.objectives[k-MU-1].med = float(p[1])
                 lownotfound = False
@@ -104,7 +106,7 @@ class jmoo_problem(object):
                 population.append(jmoo_individual(problem,[float(p[n]) for n,dec in enumerate(problem.decisions)],None))
                 #population[-1].fitness = jmoo_fitness(problem, [float(p[n+len(problem.decisions)]) for n,obj in enumerate(problem.objectives)])
             
-        
+        print len(population)
         return population
     
     def buildHeader(prob):

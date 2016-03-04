@@ -119,12 +119,12 @@ class jmoo_chart_report:
         self.Configurations = Configurations
 
     def doit(self, tagnote=""):
-        generate_final_frontier_for_gale4(self.tests.problems, self.tests.algorithms, self.Configurations, tag=tagnote)
-        hv_spread =[]
+        igd_list = []
+        need to fix the igd
         for problem in self.tests.problems:
-            hv_spread.append(charter_reporter([problem], self.tests.algorithms, self.Configurations, tag=tagnote))
+            igd_list.append(charter_reporter([problem], self.tests.algorithms, self.Configurations, tag=tagnote))
         # statistic_reporter(self.tests.problems, self.tests.algorithms, self.Configurations, tag=tagnote)
-        comparision_reporter(self.tests.problems, self.tests.algorithms, [hvp[0] for hvp in hv_spread], [hvp[1] for hvp in hv_spread], [hvp[2] for hvp in hv_spread], "GALE")
+        # comparision_reporter(self.tests.problems, self.tests.algorithms, [hvp[0] for hvp in hv_spread], [hvp[1] for hvp in hv_spread], [hvp[2] for hvp in hv_spread], "GALE")
         # for problem in self.tests.problems:
         #     hv_spread.append(charter_reporter([problem], self.tests.algorithms, self.Configurations, tag=tagnote))
         # generate_summary(self.tests.problems, self.tests.algorithms, "GALE", self.Configurations)

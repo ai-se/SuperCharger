@@ -57,7 +57,7 @@ algorithms = [
 
 
 problems =[
-    dtlz1(5, 2)
+    dtlz1(9, 5)
     # POM3A(),
     # POM3B(), POM3C(), POM3D(),
     # XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
@@ -70,10 +70,10 @@ build_new_pop = False                                       # Whether or not to 
 
 Configurations = {
     "Universal": {
-        "Repeats" : 9,
+        "Repeats" : 1,
         "Population_Size" : 92,
-        "No_of_Generations" : 1,
-        "Generation_Technique" : sway
+        "No_of_Generations" : 10,
+        "Generation_Technique" : standard_random
     },
     "NSGAIII": {
         "SBX_Probability": 1,

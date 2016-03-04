@@ -15,8 +15,11 @@ def sway(problem, n):
     # Spectral Reduction
     dataset = spectral_cleanup(problem, dataset)
 
-    import pdb
-    pdb.set_trace()
+    # Add extra points
+    delta = n - len(dataset)
+    dataset.extend(standard_random(problem, delta, center=True))
+    assert(len(dataset) == n), "Something is wrong!"
+    return dataset
 
 
 
