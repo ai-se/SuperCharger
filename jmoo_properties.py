@@ -53,27 +53,29 @@ from Problems.MONRP.monrp import MONRP
 # JMOO Experimental Definitions
 algorithms = [
             jmoo_NSGAIII(),
+            jmoo_MOEAD_PBI()
               ]
 
 
 problems =[
-    dtlz1(9, 5)
-    # POM3A(),
-    # POM3B(), POM3C(), POM3D(),
-    # XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
+    # dtlz1(9, 5)
+    POM3A(),
+    POM3B(), POM3C(), POM3D(),
+    XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
     # NRP(50, 5, 5, 0, 80),
     # MONRP(50, 5, 5, 0, 80)
 
 ]
 
+GTechniques = [standard_random, sway]
+
 build_new_pop = False                                       # Whether or not to rebuild the initial population
 
 Configurations = {
     "Universal": {
-        "Repeats" : 1,
+        "Repeats" : 20,
         "Population_Size" : 92,
         "No_of_Generations" : 10,
-        "Generation_Technique" : standard_random
     },
     "NSGAIII": {
         "SBX_Probability": 1,

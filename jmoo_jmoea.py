@@ -87,7 +87,7 @@ def store_values_g4(latestdir, generation_number, population):
     f.close()
 
 
-def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
+def jmoo_evo(problem, algorithm, gtechnique, configurations, toStop = bstop):
     """
     ----------------------------------------------------------------------------
      Inputs:
@@ -122,7 +122,7 @@ def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
     #     jmoo_properties.PSI = jmoo_properties.max_generation[problem.name]
     #     jmoo_properties.MU = population_size[problem.name.split("_")[-1]]
 
-    population = problem.loadInitialPopulation(configurations["Universal"]["Population_Size"])
+    population = problem.loadInitialPopulation(configurations["Universal"]["Population_Size"], gtechnique)
 
     assert(len(population) == configurations["Universal"]["Population_Size"]), "The population loaded from the file must be equal to MU"
     from time import time
@@ -137,7 +137,7 @@ def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
 
 
     # Generate a folder to store the population
-    foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "/"
+    foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "_" + gtechnique.__name__ + "/"
     import os
     all_subdirs = [foldername + d for d in os.listdir(foldername) if os.path.isdir(foldername + d)]
     latest_subdir = sorted(all_subdirs, key=os.path.getmtime)[-1]
@@ -197,15 +197,7 @@ def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
             statBox.update(population, gen, numNewEvals)
             store_values(latest_subdir, gen, population)
 
-        # from PerformanceMetrics.IGD.IGD_Calculation import IGD
-        # resulting_pf = [[float(f) for f in individual.fitness.fitness] for individual in statBox.box[-1].population]
-        # fitnesses = statBox.box[-1].fitnesses
-        # median_fitness = []
-        # for i in xrange(len(problem.objectives)):
-        #     temp_fitness = [fit[i] for fit in fitnesses]
-        #     median_fitness.append(median(temp_fitness))
-        # print IGD(resulting_pf, readpf(problem)), median_fitness
-            
+
         # # # # # # # # # # # # # # # # # #
         # 4e) Evaluate Stopping Criteria  #
         # # # # # # # # # # # # # # # # # #
@@ -213,8 +205,6 @@ def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
             stoppingCriteria = toStop(statBox)
         # stoppingCriteria = False
 
-        # assert(len(statBox.box[-1].population) == configurations["Universal"]["Population_Size"]), \
-        #     "Length in the statBox should be equal to MU"
 
     return statBox
 

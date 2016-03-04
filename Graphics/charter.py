@@ -429,70 +429,76 @@ def comparision_reporter(problems, algorithms, list_hypervolume_scores, list_spr
         barplot(np_x_dpoints, file_name, tag + measure_name, {alg.name:alg.color for alg in algorithms})
 
 
-def igd_reporter(problems, algorithms, Configurations, aggregate_measure=mean, tag="IGD"):
-    def get_data_from_archive(problems, algorithms, Configurations, function):
+def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_measure=mean, tag="IGD"):
+    def get_data_from_archive(gtechniques, problems, algorithms, Configurations, function):
         from PerformanceMeasures.DataFrame import ProblemFrame
         problem_dict = {}
         for problem in problems:
-            data = ProblemFrame(problem, algorithms)
+            actual_name = problem.name
+            for gtechnique in gtechniques:
+                problem.name = actual_name + "_" + gtechnique.__name__
+                data = ProblemFrame(problem, algorithms)
 
-            # # finding the final frontier
-            final_frontiers = data.get_frontier_values()
+                # # finding the final frontier
+                final_frontiers = data.get_frontier_values()
 
-            # unpacking the final frontiers
-            unpacked_frontier = []
-            for key in final_frontiers.keys():
-                for repeat in final_frontiers[key]:
-                    unpacked_frontier.extend(repeat)
-
-
-            # Vivek: I have noticed that some of the algorithms (specifically VALE8) produces duplicate points
-            # which would then show up in nondominated sort and tip the scale in its favour. So I would like to remove
-            # all the duplicate points from the population and then perform a non dominated sort
-            old = len(unpacked_frontier)
-            unpacked_frontier = list(set(unpacked_frontier))
-            if len(unpacked_frontier) - old == 0:
-                print "There are no duplicates!! check"
-
-            # Find the non dominated solutions
-
-            # change into jmoo_individual
-            from jmoo_individual import jmoo_individual
-            population = [jmoo_individual(problem, i.decisions, i.objectives) for i in unpacked_frontier]
-
-            # Vivek: I first tried to choose only the non dominated solutions. But then there are only few solutions
-            # (in order of 1-2) so I am just doing a non dominated sorting with crowd distance
-            actual_frontier = [sol.fitness.fitness for sol in get_non_dominated_solutions(problem, population, Configurations)]
-            assert(len(actual_frontier) == Configurations["Universal"]["Population_Size"])
+                # unpacking the final frontiers
+                unpacked_frontier = []
+                for key in final_frontiers.keys():
+                    for repeat in final_frontiers[key]:
+                        unpacked_frontier.extend(repeat)
 
 
-            generation_dict = {}
-            for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
-                #
-                population = data.get_frontier_values(generation)
-                evaluations = data.get_evaluation_values(generation)
+                # Vivek: I have noticed that some of the algorithms (specifically VALE8) produces duplicate points
+                # which would then show up in nondominated sort and tip the scale in its favour. So I would like to remove
+                # all the duplicate points from the population and then perform a non dominated sort
+                old = len(unpacked_frontier)
+                unpacked_frontier = list(set(unpacked_frontier))
+                if len(unpacked_frontier) - old == 0:
+                    print "There are no duplicates!! check"
 
-                algorithm_dict = {}
-                for algorithm in algorithms:
-                    repeat_dict = {}
-                    for repeat in xrange(Configurations["Universal"]["Repeats"]):
-                        candidates = [pop.objectives for pop in population[algorithm.name][repeat]]
-                        repeat_dict[str(repeat)] = {}
-                        from PerformanceMetrics.IGD.IGD_Calculation import IGD
-                        if len(candidates) > 0:
-                            repeat_dict[str(repeat)]["IGD"] = IGD(actual_frontier, candidates)
-                            repeat_dict[str(repeat)]["Evaluations"] = evaluations[algorithm.name][repeat]
-                        else:
-                            repeat_dict[str(repeat)]["IGD"] = None
-                            repeat_dict[str(repeat)]["Evaluations"] = None
+                # Find the non dominated solutions
 
-                    algorithm_dict[algorithm.name] = repeat_dict
-                generation_dict[str(generation)] = algorithm_dict
-            problem_dict[problem.name] = generation_dict
+                # change into jmoo_individual
+                from jmoo_individual import jmoo_individual
+                population = [jmoo_individual(problem, i.decisions, i.objectives) for i in unpacked_frontier]
+
+                # Vivek: I first tried to choose only the non dominated solutions. But then there are only few solutions
+                # (in order of 1-2) so I am just doing a non dominated sorting with crowd distance
+                actual_frontier = [sol.fitness.fitness for sol in get_non_dominated_solutions(problem, population, Configurations)]
+                assert(len(actual_frontier) == Configurations["Universal"]["Population_Size"])
+
+
+                generation_dict = {}
+                for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
+                    #
+                    population = data.get_frontier_values(generation)
+                    evaluations = data.get_evaluation_values(generation)
+
+                    algorithm_dict = {}
+                    for algorithm in algorithms:
+                        repeat_dict = {}
+                        for repeat in xrange(Configurations["Universal"]["Repeats"]):
+                            candidates = [pop.objectives for pop in population[algorithm.name][repeat]]
+                            repeat_dict[str(repeat)] = {}
+                            from PerformanceMetrics.IGD.IGD_Calculation import IGD
+                            if len(candidates) > 0:
+                                repeat_dict[str(repeat)]["IGD"] = IGD(actual_frontier, candidates)
+                                repeat_dict[str(repeat)]["Evaluations"] = evaluations[algorithm.name][repeat]
+                            else:
+                                repeat_dict[str(repeat)]["IGD"] = None
+                                repeat_dict[str(repeat)]["Evaluations"] = None
+
+                        algorithm_dict[algorithm.name] = repeat_dict
+                    generation_dict[str(generation)] = algorithm_dict
+                problem_dict[problem.name] = generation_dict
+            problem.name = actual_name
         return problem_dict, actual_frontier
 
+
     from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
-    result, actual_frontier = get_data_from_archive(problems, algorithms, Configurations, get_hyper_volume)
+    result, actual_frontier = get_data_from_archive(gtechniques, problems, algorithms, Configurations, get_hyper_volume)
+
 
     date_folder_prefix = strftime("%m-%d-%Y")
     if not os.path.isdir('./Results/Final_Frontier/' + date_folder_prefix):
@@ -504,77 +510,87 @@ def igd_reporter(problems, algorithms, Configurations, aggregate_measure=mean, t
 
     problem_scores = {}
     for problem in problems:
-        print problem.name
-        from PerformanceMetrics.IGD.IGD_Calculation import IGD
-        baseline_igd = IGD(actual_frontier, baseline_objectives(problem, Configurations))
-
-        # write the final frontier
-        fignum = len([name for name in os.listdir('./Results/Final_Frontier/' + date_folder_prefix)]) + 1
-        filename_frontier = './Results/Final_Frontier/' + date_folder_prefix + '/table' + str("%02d" % fignum) + "_" \
-                             + problem.name + "_" + tag + '.csv'
-        ffrontier = open(filename_frontier, "w")
-        for l in actual_frontier:
-            string_l = ",".join(map(str, l))
-            ffrontier.write(string_l + "\n")
-        ffrontier.close()
-
+        actual_name = problem.name
         f, axarr = plt.subplots(1)
-        scores = {}
-        for algorithm in algorithms:
-            median_scores = []
-            median_evals = []
-            Tables_Content = ""
-            Tables_Content += "Generation, o25, o50, o75, n25, n50, n75 \n"
+        for gtechnique in gtechniques:
 
-            for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
-                temp_result = result[problem.name][str(generation)][algorithm.name]
-                hypervolume_list = [temp_result[str(repeat)]["IGD"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["IGD"] is not None]
+            print problem.name
+            from PerformanceMetrics.IGD.IGD_Calculation import IGD
+            baseline_igd = IGD(actual_frontier, baseline_objectives(problem, Configurations, gtechnique))
+            problem.name = actual_name + "_" + gtechnique.__name__
 
-                old_evals = [sum([result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in xrange(generation) if result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for repeat in xrange(Configurations["Universal"]["Repeats"])]
-                evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["Evaluations"] is not None]
-
-                assert(len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
-                if len(hypervolume_list) > 0 and len(evaluation_list) > 0:
-                    o25 = getPercentile(hypervolume_list, 25)
-                    o50 = getPercentile(hypervolume_list, 50)
-                    o75 = getPercentile(hypervolume_list, 75)
-                    Tables_Content += str(generation) + "," + str(o25) + "," + str(o50) + "," + str(o75) + "," + str(
-                        (o25 - baseline_igd) / baseline_igd) + "," + str(
-                        (o50 - baseline_igd) / baseline_igd) + "," + str((o75 - baseline_igd) / baseline_igd) + "\n"
-                    median_scores.append(aggregate_measure(hypervolume_list))
-                    median_evals.append(aggregate_measure(old_evals))
-
-            if not os.path.isdir('./Results/Tables/' + date_folder_prefix):
-                    os.makedirs('./Results/Tables/' + date_folder_prefix)
-            fignum = len([name for name in os.listdir('./Results/Tables/' + date_folder_prefix)]) + 1
-            filename_table = './Results/Tables/' + date_folder_prefix + '/table' + str("%02d" % fignum) + "_" \
-                             + algorithm.name + "_" + problem.name + "_" + tag + '.csv'
-
-            # print Tables_Content
-            open(filename_table, "w").write(Tables_Content)
-
-            scores[algorithm.name] = aggregate_measure(median_scores)
-            axarr.plot(median_evals, median_scores, linestyle='None', label=algorithm.name, marker=algorithm.type, color=algorithm.color, markersize=8, markeredgecolor='none')
-            axarr.plot(median_evals, median_scores, color=algorithm.color)
-            # axarr[o].set_ylim(0, 130)
-            axarr.set_autoscale_on(True)
-            axarr.set_xlim([-10, 10000])
-            axarr.set_xscale('log', nonposx='clip')
-            axarr.set_ylabel("IGD")
+            # write the final frontier
+            fignum = len([name for name in os.listdir('./Results/Final_Frontier/' + date_folder_prefix)]) + 1
+            filename_frontier = './Results/Final_Frontier/' + date_folder_prefix + '/table' + str("%02d" % fignum) + "_" \
+                                 + problem.name + "_" + tag + '.csv'
+            ffrontier = open(filename_frontier, "w")
+            for l in actual_frontier:
+                string_l = ",".join(map(str, l))
+                ffrontier.write(string_l + "\n")
+            ffrontier.close()
 
 
-        f.suptitle(problem.name)
-        fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
-        plt.legend(loc='lower center', bbox_to_anchor=(1, 0.5))
-        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
-        cla()
-        problem_scores[problem.name] = scores
+            scores = {}
+            for algorithm in algorithms:
+                median_scores = []
+                median_evals = []
+                Tables_Content = ""
+                Tables_Content += "Generation, o25, o50, o75, n25, n50, n75 \n"
+
+                for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
+                    temp_result = result[problem.name][str(generation)][algorithm.name]
+                    hypervolume_list = [temp_result[str(repeat)]["IGD"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["IGD"] is not None]
+
+                    old_evals = [sum([result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in xrange(generation) if result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for repeat in xrange(Configurations["Universal"]["Repeats"])]
+                    evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["Evaluations"] is not None]
+
+                    assert(len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
+                    if len(hypervolume_list) > 0 and len(evaluation_list) > 0:
+                        o25 = getPercentile(hypervolume_list, 25)
+                        o50 = getPercentile(hypervolume_list, 50)
+                        o75 = getPercentile(hypervolume_list, 75)
+                        Tables_Content += str(generation) + "," + str(o25) + "," + str(o50) + "," + str(o75) + "," + str(
+                            (o25 - baseline_igd) / baseline_igd) + "," + str(
+                            (o50 - baseline_igd) / baseline_igd) + "," + str((o75 - baseline_igd) / baseline_igd) + "\n"
+                        median_scores.append(aggregate_measure(hypervolume_list))
+                        median_evals.append(aggregate_measure(old_evals))
+
+                if not os.path.isdir('./Results/Tables/' + date_folder_prefix):
+                        os.makedirs('./Results/Tables/' + date_folder_prefix)
+                fignum = len([name for name in os.listdir('./Results/Tables/' + date_folder_prefix)]) + 1
+                filename_table = './Results/Tables/' + date_folder_prefix + '/table' + str("%02d" % fignum) + "_" \
+                                 + algorithm.name + "_" + problem.name + "_" + tag + '.csv'
+
+                # print Tables_Content
+                open(filename_table, "w").write(Tables_Content)
+
+                if gtechnique.__name__ == "sway": lstyle = "--"
+                else: lstyle = '-'
+
+                scores[algorithm.name] = aggregate_measure(median_scores)
+                axarr.plot(median_evals, median_scores, linestyle=lstyle, label=algorithm.name + "_" + gtechnique.__name__, marker=algorithm.type, color=algorithm.color, markersize=8, markeredgecolor='none')
+                # axarr.plot(median_evals, median_scores, color=algorithm.color)
+                # axarr[o].set_ylim(0, 130)
+                axarr.set_autoscale_on(True)
+                axarr.set_xlim([-10, 10000])
+                axarr.set_xscale('log', nonposx='clip')
+                axarr.set_ylabel("IGD")
+
+            problem.name = actual_name
+
+
+    f.suptitle(problem.name)
+    fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
+    plt.legend(loc='upper center')
+    plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
+    cla()
+    problem_scores[problem.name] = scores
 
     return problem_scores
 
 
-def baseline_objectives(prob, Configurations):
-    file_handle = open("data/" + prob.name + "-p" + str(Configurations["Universal"]["Population_Size"]) + "-d"  + str(len(prob.decisions)) + "-o" + str(len(prob.objectives)) + "-dataset.txt", 'rb')
+def baseline_objectives(prob, Configurations, gtechnique):
+    file_handle = open("data/" + prob.name + "-p" + str(Configurations["Universal"]["Population_Size"]) + "-d"  + str(len(prob.decisions)) + "-o" + str(len(prob.objectives)) + "-g" + gtechnique.__name__ + "-dataset.txt", 'rb')
     objectives = []
     for i, line in enumerate(file_handle):
         if i != 0 and i <= Configurations["Universal"]["Population_Size"]: objectives.append(map(float, line.strip().split(","))[-1*len(prob.objectives):])
@@ -638,13 +654,13 @@ def hypervolume_approximate_ranking(problems, algorithms, Configurations, tag="h
         hv_approx.close()
 
 
-def charter_reporter(problems, algorithms, Configurations, tag=""):
+def charter_reporter(problems, algorithms, gtechniques, Configurations, tag=""):
     import sys
     sys.setrecursionlimit(10000)
     # hypervolume_scores = hypervolume_graphs(problems, algorithms, Configurations, aggregate_measure=median)
     # spread_scores = spread_graphs(problems, algorithms, Configurations, aggregate_measure=median)
     # joes_diagrams(problems, algorithms, Configurations)
-    igd_scores = igd_reporter(problems, algorithms, Configurations)
+    igd_scores = igd_reporter(problems, algorithms, gtechniques, Configurations)
     # hypervolume_approximate_ranking(problems, algorithms, Configurations)
     return [igd_scores]
 

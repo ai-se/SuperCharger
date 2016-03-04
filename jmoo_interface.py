@@ -76,11 +76,12 @@ for i,arg in enumerate(sys.argv):
 # Build new initial populations if suggested.  Before tests can be performed, a problem requires an initial dataset.
 if build_new_pop:
     for problem in problems:
-        initialPopulation(problem, Configurations["Universal"]["Generation_Technique"], Configurations["Universal"]["Population_Size"])
+        for gtech in GTechniques:
+            initialPopulation(problem, gtech, Configurations["Universal"]["Population_Size"])
 
 
 # Wrap the tests in the jmoo core framework
-tests = jmoo_test(problems, algorithms)
+tests = jmoo_test(problems, algorithms, GTechniques)
 
 # Define the reports
 if chartOnly == True: reports = [jmoo_chart_report(tests, Configurations)]
