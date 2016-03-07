@@ -81,7 +81,7 @@ class XOMO_osp(jmoo_problem):
 
         prob.decisions = [jmoo_decision(names[i], bounds[names[i]][0], bounds[names[i]][1]) for i in range(len(names))]
 
-        prob.objectives = [jmoo_objective("Effort", True), jmoo_objective("Months", True), jmoo_objective("Defects", True), jmoo_objective("Risks", True)]
+        prob.objectives = [jmoo_objective("Effort", True), jmoo_objective("Months", True), jmoo_objective("Defects", True)]#, jmoo_objective("Risks", True)]
     def evaluate(prob, input = None):
         if input:
             for i,decision in enumerate(prob.decisions):
