@@ -3,10 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="1fa16c3e-d1ab-44b0-a16d-99c117196906" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Graphics/charter.py" afterPath="$PROJECT_DIR$/Graphics/charter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/RRS_TABLE__POM3B-p92-d9-o3_MOEAD_PBI.datatable" afterPath="$PROJECT_DIR$/Data/RRS_TABLE__POM3B-p92-d9-o3_MOEAD_PBI.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/RRS_TABLE__POM3B-p92-d9-o3_NSGA3.datatable" afterPath="$PROJECT_DIR$/Data/RRS_TABLE__POM3B-p92-d9-o3_NSGA3.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/RRS_TABLE__POM3C-p92-d9-o3_NSGA3.datatable" afterPath="$PROJECT_DIR$/Data/RRS_TABLE__POM3C-p92-d9-o3_NSGA3.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/decision_bin_table_POM3B-p92-d9-o3_MOEAD_PBI.datatable" afterPath="$PROJECT_DIR$/Data/decision_bin_table_POM3B-p92-d9-o3_MOEAD_PBI.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/decision_bin_table_POM3B-p92-d9-o3_NSGA3.datatable" afterPath="$PROJECT_DIR$/Data/decision_bin_table_POM3B-p92-d9-o3_NSGA3.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/decision_bin_table_POM3C-p92-d9-o3_NSGA3.datatable" afterPath="$PROJECT_DIR$/Data/decision_bin_table_POM3C-p92-d9-o3_NSGA3.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/results_POM3B-p92-d9-o3_MOEAD_PBI.datatable" afterPath="$PROJECT_DIR$/Data/results_POM3B-p92-d9-o3_MOEAD_PBI.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/results_POM3B-p92-d9-o3_NSGA3.datatable" afterPath="$PROJECT_DIR$/Data/results_POM3B-p92-d9-o3_NSGA3.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/results_POM3C-p92-d9-o3_NSGA3.datatable" afterPath="$PROJECT_DIR$/Data/results_POM3C-p92-d9-o3_NSGA3.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/summary_.datatable" afterPath="$PROJECT_DIR$/Data/summary_.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/summary_POM3B-p92-d9-o3_MOEAD_PBI.datatable" afterPath="$PROJECT_DIR$/Data/summary_POM3B-p92-d9-o3_MOEAD_PBI.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/summary_POM3B-p92-d9-o3_NSGA3.datatable" afterPath="$PROJECT_DIR$/Data/summary_POM3B-p92-d9-o3_NSGA3.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/summary_POM3C-p92-d9-o3_NSGA3.datatable" afterPath="$PROJECT_DIR$/Data/summary_POM3C-p92-d9-o3_NSGA3.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Graphics/PerformanceMeasures/DataFrame.py" afterPath="$PROJECT_DIR$/Graphics/PerformanceMeasures/DataFrame.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_jmoea.py" afterPath="$PROJECT_DIR$/jmoo_jmoea.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_properties.py" afterPath="$PROJECT_DIR$/jmoo_properties.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility.py" afterPath="$PROJECT_DIR$/utility.py" />
     </list>
     <ignored path="SuperCharger.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,97 +39,136 @@
     <favorites_list name="SuperCharger" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="jmoo_properties.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="utility.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/utility.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="232" column="21" selection-start-line="232" selection-start-column="21" selection-end-line="232" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#1069#1080#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jmoo_jmoea.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/jmoo_jmoea.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#1084#1113#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="charter.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8495413">
-                  <caret line="272" column="40" selection-start-line="272" selection-start-column="40" selection-end-line="272" selection-end-column="40" />
-                  <folding>
-                    <element signature="e#1768#6730#0" expanded="false" />
-                    <element signature="e#6951#8891#0" expanded="false" />
-                    <element signature="e#12699#17390#0" expanded="false" />
-                    <element signature="e#17499#20472#0" expanded="false" />
-                    <element signature="e#20620#22080#0" expanded="false" />
-                    <element signature="e#22191#30986#0" expanded="false" />
-                    <element signature="e#31614#34401#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="pop_generators.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/InitialPopulationGeneration/pop_generators.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
-                  <folding>
-                    <element signature="e#750#1815#0" expanded="false" />
-                    <element signature="e#1818#1887#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="charter.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7504587">
-                  <caret line="601" column="45" selection-start-line="596" selection-start-column="8" selection-end-line="601" selection-end-column="45" />
-                  <folding>
-                    <element signature="e#1768#6730#0" expanded="false" />
-                    <element signature="e#12699#17390#0" expanded="false" />
-                    <element signature="e#17499#20472#0" expanded="false" />
-                    <element signature="e#20620#22080#0" expanded="false" />
-                    <element signature="e#31614#34401#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="jmoo_properties.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="63" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XOMO_osp.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_osp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="124" selection-start-line="83" selection-start-column="124" selection-end-line="83" selection-end-column="124" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XOMO_osp2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_osp2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XOMO_ground.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_ground.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="86" column="60" selection-start-line="86" selection-start-column="60" selection-end-line="86" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XOMO_flight.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_flight.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nsgaiii_components.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Algorithms/NSGAIII/nsgaiii_components.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.703704">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XOMO_all.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_all.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jmoo_jmoea.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jmoo_jmoea.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="197" column="32" selection-start-line="197" selection-start-column="32" selection-end-line="197" selection-end-column="32" />
+              <folding>
+                <element signature="e#1084#1113#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="charter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.148148">
+              <caret line="272" column="40" selection-start-line="272" selection-start-column="40" selection-end-line="272" selection-end-column="40" />
+              <folding>
+                <element signature="e#1768#6730#0" expanded="false" />
+                <element signature="e#6951#8891#0" expanded="false" />
+                <element signature="e#12699#17390#0" expanded="false" />
+                <element signature="e#17499#20472#0" expanded="false" />
+                <element signature="e#20620#22080#0" expanded="false" />
+                <element signature="e#22191#30986#0" expanded="false" />
+                <element signature="e#31614#34401#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataFrame.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Graphics/PerformanceMeasures/DataFrame.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8426573">
+              <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
+              <folding>
+                <element signature="e#357#652#0" expanded="false" />
+                <element signature="e#719#2148#0" expanded="false" />
+                <element signature="e#2216#2957#0" expanded="false" />
+                <element signature="e#3024#3174#0" expanded="false" />
+                <element signature="e#6328#6771#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -139,14 +190,16 @@
         <option value="$PROJECT_DIR$/jmoo_problem.py" />
         <option value="$PROJECT_DIR$/cleanup.py" />
         <option value="$PROJECT_DIR$/jmoo_interface.py" />
-        <option value="$PROJECT_DIR$/Graphics/PerformanceMeasures/DataFrame.py" />
         <option value="$PROJECT_DIR$/jmoo_core.py" />
         <option value="$PROJECT_DIR$/InitialPopulationGeneration/pop_generators.py" />
         <option value="$PROJECT_DIR$/utility.py" />
-        <option value="$PROJECT_DIR$/jmoo_properties.py" />
-        <option value="$PROJECT_DIR$/jmoo_jmoea.py" />
         <option value="$PROJECT_DIR$/Graphics/charter_simplified.py" />
         <option value="$PROJECT_DIR$/Graphics/charter.py" />
+        <option value="$PROJECT_DIR$/jmoo_jmoea.py" />
+        <option value="$PROJECT_DIR$/Problems/XOMO/XOMO_osp.py" />
+        <option value="$PROJECT_DIR$/Problems/XOMO/XOMO_ground.py" />
+        <option value="$PROJECT_DIR$/jmoo_properties.py" />
+        <option value="$PROJECT_DIR$/Graphics/PerformanceMeasures/DataFrame.py" />
       </list>
     </option>
   </component>
@@ -214,7 +267,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Data" />
+              <option name="myItemId" value="RawData" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PopulationArchives" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SuperCharger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SuperCharger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RawData" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,14 +513,14 @@
     <frame x="0" y="23" width="1920" height="1008" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2539936" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34282586" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34282586" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -496,7 +567,7 @@
         <state vertical-scroll-proportion="0.53571427">
           <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
           <folding>
-            <element signature="e#721#738#0" expanded="true" />
+            <element signature="e#721#738#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -591,20 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/PerformanceMeasures/DataFrame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="128" column="8" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
-          <folding>
-            <element signature="e#357#652#0" expanded="false" />
-            <element signature="e#719#2148#0" expanded="false" />
-            <element signature="e#2216#2957#0" expanded="false" />
-            <element signature="e#3024#3174#0" expanded="false" />
-            <element signature="e#6307#6750#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0793651">
@@ -619,7 +676,7 @@
           <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
           <folding>
             <element signature="e#750#1815#0" expanded="false" />
-            <element signature="e#1818#1887#0" expanded="true" />
+            <element signature="e#1818#1887#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -629,7 +686,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="232" column="21" selection-start-line="232" selection-start-column="21" selection-end-line="232" selection-end-column="21" />
           <folding>
-            <element signature="e#1069#1080#0" expanded="true" />
+            <element signature="e#1069#1080#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -637,24 +694,89 @@
     <entry file="file://$PROJECT_DIR$/jmoo_jmoea.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <caret line="197" column="32" selection-start-line="197" selection-start-column="32" selection-end-line="197" selection-end-column="32" />
           <folding>
             <element signature="e#1084#1113#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Algorithms/NSGAIII/nsgaiii_components.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.703704">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_osp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="124" selection-start-line="83" selection-start-column="124" selection-end-line="83" selection-end-column="124" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_osp2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_ground.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="60" selection-start-line="86" selection-start-column="60" selection-end-line="86" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_flight.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/XOMO/XOMO_all.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/Charts/03-07-2016/figure01_xomo_ground_IGD.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="63" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8495413">
+        <state vertical-scroll-proportion="-17.148148">
           <caret line="272" column="40" selection-start-line="272" selection-start-column="40" selection-end-line="272" selection-end-column="40" />
           <folding>
             <element signature="e#1768#6730#0" expanded="false" />
@@ -664,6 +786,20 @@
             <element signature="e#20620#22080#0" expanded="false" />
             <element signature="e#22191#30986#0" expanded="false" />
             <element signature="e#31614#34401#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/PerformanceMeasures/DataFrame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8426573">
+          <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
+          <folding>
+            <element signature="e#357#652#0" expanded="false" />
+            <element signature="e#719#2148#0" expanded="false" />
+            <element signature="e#2216#2957#0" expanded="false" />
+            <element signature="e#3024#3174#0" expanded="false" />
+            <element signature="e#6328#6771#0" expanded="false" />
           </folding>
         </state>
       </provider>

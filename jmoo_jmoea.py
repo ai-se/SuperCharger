@@ -194,7 +194,8 @@ def jmoo_evo(problem, algorithm, gtechnique, configurations, toStop = bstop):
         # # # # # # # # # # # # # # # # # #
         # 4e) Evaluate Stopping Criteria  #
         # # # # # # # # # # # # # # # # # #
-        stoppingCriteria = toStop(statBox)
+        # stoppingCriteria = toStop(statBox)
+        stoppingCriteria = False
 
 
     return statBox

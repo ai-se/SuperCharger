@@ -113,6 +113,7 @@ class RepeatFrame():
         self.generations = [GenerationFrame(self.problem, file) for file in files]
 
     def get_frontier(self, number):
+        print number
         if number < len(self.generations):
             return self.generations[number].solutions
         else:
