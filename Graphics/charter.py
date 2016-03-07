@@ -1,4 +1,5 @@
 from __future__ import division
+
 """
 ##########################################################
 ### @Author Joe Krall      ###############################
@@ -42,43 +43,45 @@ def read_initial_population(prob, filename):
     reader_initial_data = csv.reader(fd_initial_data, delimiter=',')
     initial = []
     row_count = sum(1 for _ in csv.reader(open(filename)))
-    for i,row in enumerate(reader_initial_data):
-        if i > 1 and i != row_count-1:
-                row = map(float, row)
-                try: initial.append(prob.evaluate(row)[-1])
-                except: pass
+    for i, row in enumerate(reader_initial_data):
+        if i > 1 and i != row_count - 1:
+            row = map(float, row)
+            try:
+                initial.append(prob.evaluate(row)[-1])
+            except:
+                pass
     return initial
 
 
 def joes_diagrams(problems, algorithms, Configurations, tag="JoeDiagram"):
     date_folder_prefix = strftime("%m-%d-%Y")
 
-
     base = []
     final = []
     data = []
 
-    for p,prob in enumerate(problems):
+    for p, prob in enumerate(problems):
         base.append([])
         final.append([])
         data.append([])
 
-        for a,alg in enumerate(algorithms):
-
+        for a, alg in enumerate(algorithms):
 
             # finput = open("data/" + prob.name + "-p" + str(Configurations["Universal"]["Population_Size"]) + "-d"  + str(len(prob.decisions)) + "-o" + str(len(prob.objectives)) + "-dataset.txt", 'rb')
-            f3input = open("data/results_" + prob.name + "-p" + str(Configurations["Universal"]["Population_Size"]) + "-d"  + str(len(prob.decisions)) + "-o" + str(len(prob.objectives)) + "_" + alg.name + ".datatable", 'rb')
+            f3input = open(
+                "data/results_" + prob.name + "-p" + str(Configurations["Universal"]["Population_Size"]) + "-d" + str(
+                    len(prob.decisions)) + "-o" + str(len(prob.objectives)) + "_" + alg.name + ".datatable", 'rb')
             # f4input = open(DATA_PREFIX + "decision_bin_table" + "_" + prob.name+ "-p" + str(Configurations["Universal"]["Population_Size"]) + "-d"  + str(len(prob.decisions)) + "-o" + str(len(prob.objectives))  + "_" + alg.name + DATA_SUFFIX, 'rb')
             # reader = csv.reader(finput, delimiter=',')
             reader3 = csv.reader(f3input, delimiter=',')
             # reader4 = csv.reader(f4input, delimiter=',')
-            base[p].append( [] )
-            final[p].append( [] )
-            data[p].append( [] )
+            base[p].append([])
+            final[p].append([])
+            data[p].append([])
 
-            for i,row in enumerate(reader3):
+            for i, row in enumerate(reader3):
                 if not str(row[0]) == "0":
-                    for j,col in enumerate(row):
+                    for j, col in enumerate(row):
                         if i == 0:
                             data[p][a].append([])
                         else:
@@ -87,83 +90,85 @@ def joes_diagrams(problems, algorithms, Configurations, tag="JoeDiagram"):
 
     colors = ['r', 'b', 'g']
     from matplotlib.font_manager import FontProperties
-    font = {'family' : 'sans-serif',
-            'weight' : 'normal',
-            'size'   : 8}
+    font = {'family': 'sans-serif',
+            'weight': 'normal',
+            'size': 8}
 
     matplotlib.rc('font', **font)
     fontP = FontProperties()
     fontP.set_size('x-small')
 
-
     codes = ["b*", "r.", "g*"]
 
-    line =  "-"
-    dotted= "--"
+    line = "-"
+    dotted = "--"
     algnames = [alg.name for alg in algorithms]
-    axy = [0,1,2,3]
-    axx = [0,0,0,0]
-    codes2= ["b-", "r-", "g-"]
-    colors= ["b", "r", "g"]
+    axy = [0, 1, 2, 3]
+    axx = [0, 0, 0, 0]
+    codes2 = ["b-", "r-", "g-"]
+    colors = ["b", "r", "g"]
     ms = 8
-    #fig  = plt.figure()
-    #ax = fig.gca(projection='3d')
+    # fig  = plt.figure()
+    # ax = fig.gca(projection='3d')
 
 
 
 
-    for p,prob in enumerate(problems):
-                f, axarr = plt.subplots(len(prob.objectives))#+1, len(prob.objectives))
+    for p, prob in enumerate(problems):
+        f, axarr = plt.subplots(len(prob.objectives))  # +1, len(prob.objectives))
 
-                for o, obj in enumerate(prob.objectives):
-                    maxEvals = 0
-                    for a,alg in enumerate(algorithms):
-                        try:
-                            maxEvals = max(maxEvals, max(data[p][a][0]))
-                        except:
-                            pass
-                            # import pdb
-                            # pdb.set_trace()
-                    for a,alg in enumerate(algorithms):
+        for o, obj in enumerate(prob.objectives):
+            maxEvals = 0
+            for a, alg in enumerate(algorithms):
+                try:
+                    maxEvals = max(maxEvals, max(data[p][a][0]))
+                except:
+                    pass
+                    # import pdb
+                    # pdb.set_trace()
+            for a, alg in enumerate(algorithms):
 
-                        scores = {}
-                        for score,eval in zip(data[p][a][o*3+2], data[p][a][0]):
-                            eval = int(round(eval/5.0)*5.0)
-                            if eval in scores: scores[eval].append(score)
-                            else: scores[eval] = [score]
+                scores = {}
+                for score, eval in zip(data[p][a][o * 3 + 2], data[p][a][0]):
+                    eval = int(round(eval / 5.0) * 5.0)
+                    if eval in scores:
+                        scores[eval].append(score)
+                    else:
+                        scores[eval] = [score]
 
-                        keylist = [1]
-                        scorelist = [100]
-                        smallslist = [100]
-                        for eval in sorted(scores.keys()):
-                            lq = getPercentile(scores[eval], 25)
-                            uq = getPercentile(scores[eval], 75)
-                            scores[eval] = [score for score in scores[eval] if score >= lq and score <= uq ]
-                            for item in scores[eval]:
-                                keylist.append(eval)
-                                scorelist.append(item)
-                                if len(smallslist) == 0:
-                                    smallslist.append(min(scores[eval]))
-                                else:
-                                    smallslist.append(    min(min(scores[eval]), min(smallslist))  )
+                keylist = [1]
+                scorelist = [100]
+                smallslist = [100]
+                for eval in sorted(scores.keys()):
+                    lq = getPercentile(scores[eval], 25)
+                    uq = getPercentile(scores[eval], 75)
+                    scores[eval] = [score for score in scores[eval] if score >= lq and score <= uq]
+                    for item in scores[eval]:
+                        keylist.append(eval)
+                        scorelist.append(item)
+                        if len(smallslist) == 0:
+                            smallslist.append(min(scores[eval]))
+                        else:
+                            smallslist.append(min(min(scores[eval]), min(smallslist)))
 
-                        axarr[o].plot(keylist, scorelist, linestyle='None', label=alg.name, marker=alg.type, color=alg.color, markersize=8, markeredgecolor='none')
-                        axarr[o].plot(keylist, smallslist, color=alg.color)
-                        # axarr[o].set_ylim(0, 130)
-                        # axarr[o].set_autoscale_on(True)
-                        axarr[o].set_xlim([-10, 10000])
-                        axarr[o].set_xscale('log', nonposx='clip')
-                        axarr[o].set_ylabel(obj.name)
+                axarr[o].plot(keylist, scorelist, linestyle='None', label=alg.name, marker=alg.type, color=alg.color,
+                              markersize=8, markeredgecolor='none')
+                axarr[o].plot(keylist, smallslist, color=alg.color)
+                # axarr[o].set_ylim(0, 130)
+                # axarr[o].set_autoscale_on(True)
+                axarr[o].set_xlim([-10, 10000])
+                axarr[o].set_xscale('log', nonposx='clip')
+                axarr[o].set_ylabel(obj.name)
 
+        if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
+            os.makedirs('./Results/Charts/' + date_folder_prefix)
 
-                if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
-                    os.makedirs('./Results/Charts/' + date_folder_prefix)
-
-                f.suptitle(prob.name)
-                fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
-                plt.legend(loc='lower center', bbox_to_anchor=(1, 0.5))
-                plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + prob.name + "_" + tag + '.png', dpi=100)
-                cla()
+        f.suptitle(prob.name)
+        fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
+        plt.legend(loc='lower center', bbox_to_anchor=(1, 0.5))
+        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
+            "%02d" % fignum) + "_" + prob.name + "_" + tag + '.png', dpi=100)
+        cla()
 
 
 def hypervolume_graphs(problems, algorithms, gtechniques, Configurations, aggregate_measure=mean, tag="HyperVolume"):
@@ -222,12 +227,20 @@ def hypervolume_graphs(problems, algorithms, gtechniques, Configurations, aggreg
                 median_evals = []
                 for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
                     temp_result = result[problem.name][str(generation)][algorithm.name]
-                    hypervolume_list = [temp_result[str(repeat)]["HyperVolume"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["HyperVolume"] is not None]
+                    hypervolume_list = [temp_result[str(repeat)]["HyperVolume"] for repeat in
+                                        xrange(Configurations["Universal"]["Repeats"]) if
+                                        temp_result[str(repeat)]["HyperVolume"] is not None]
 
-                    old_evals = [sum([result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in xrange(generation) if result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for repeat in xrange(Configurations["Universal"]["Repeats"])]
-                    evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["Evaluations"] is not None]
+                    old_evals = [sum(
+                        [result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in
+                         xrange(generation) if
+                         result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for
+                                 repeat in xrange(Configurations["Universal"]["Repeats"])]
+                    evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in
+                                       xrange(Configurations["Universal"]["Repeats"]) if
+                                       temp_result[str(repeat)]["Evaluations"] is not None]
 
-                    assert(len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
+                    assert (len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
                     if len(hypervolume_list) > 0 and len(evaluation_list) > 0:
                         median_scores.append(aggregate_measure(hypervolume_list))
                         median_evals.append(aggregate_measure(old_evals))
@@ -237,19 +250,20 @@ def hypervolume_graphs(problems, algorithms, gtechniques, Configurations, aggreg
                         #     print "scores : ", median_scores
                         #     print "evals : ", median_evals
 
-
-
                 scores[algorithm.name] = aggregate_measure(median_scores)
                 # if algorithm.name == "GALE_no_mutation":
                 #     print median_evals
                 #     print ">> ", median_scores, id(median_scores)
                 #     exit()
 
-                if gtechnique.__name__ == "sway": lstyle = "--"
-                else: lstyle = '-'
+                if gtechnique.__name__ == "sway":
+                    lstyle = "--"
+                else:
+                    lstyle = '-'
 
-
-                axarr.plot(median_evals, median_scores, linestyle=lstyle, label=algorithm.name + "_" + gtechnique.__name__, marker=algorithm.type, color=algorithm.color, markersize=8, markeredgecolor='none')
+                axarr.plot(median_evals, median_scores, linestyle=lstyle,
+                           label=algorithm.name + "_" + gtechnique.__name__, marker=algorithm.type,
+                           color=algorithm.color, markersize=8, markeredgecolor='none')
                 # axarr.plot(median_evals, median_scores, color=algorithm.color)
                 # axarr[o].set_ylim(0, 130)
                 axarr.set_autoscale_on(True)
@@ -263,14 +277,15 @@ def hypervolume_graphs(problems, algorithms, gtechniques, Configurations, aggreg
         f.suptitle(problem.name)
         fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
         plt.legend(loc='lower center', bbox_to_anchor=(1, 0.5))
-        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
+        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
+            "%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
         cla()
         problem_scores[problem.name] = scores
 
     return problem_scores
 
 
-def spread_graphs(problems, algorithms, Configurations,aggregate_measure=mean, tag="Spread"):
+def spread_graphs(problems, algorithms, Configurations, aggregate_measure=mean, tag="Spread"):
     def get_data_from_archive(problems, algorithms, Configurations, function):
         from PerformanceMeasures.DataFrame import ProblemFrame
         problem_dict = {}
@@ -290,7 +305,8 @@ def spread_graphs(problems, algorithms, Configurations,aggregate_measure=mean, t
                         repeat_dict[str(repeat)] = {}
                         if len(candidates) > 0:
                             try:
-                                repeat_dict[str(repeat)]["Spread"] = function(candidates, extreme_point1, extreme_point2)
+                                repeat_dict[str(repeat)]["Spread"] = function(candidates, extreme_point1,
+                                                                              extreme_point2)
                                 repeat_dict[str(repeat)]["Evaluations"] = evaluations[algorithm.name][repeat]
                             except:
                                 repeat_dict[str(repeat)]["Spread"] = None
@@ -307,7 +323,6 @@ def spread_graphs(problems, algorithms, Configurations,aggregate_measure=mean, t
     result = get_data_from_archive(problems, algorithms, Configurations, spread_calculator)
     date_folder_prefix = strftime("%m-%d-%Y")
 
-
     problem_scores = {}
     for problem in problems:
         f, axarr = plt.subplots(1)
@@ -317,19 +332,28 @@ def spread_graphs(problems, algorithms, Configurations,aggregate_measure=mean, t
             median_evals = []
             for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
                 temp_result = result[problem.name][str(generation)][algorithm.name]
-                hypervolume_list = [temp_result[str(repeat)]["Spread"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["Spread"] is not None]
+                hypervolume_list = [temp_result[str(repeat)]["Spread"] for repeat in
+                                    xrange(Configurations["Universal"]["Repeats"]) if
+                                    temp_result[str(repeat)]["Spread"] is not None]
 
-                old_evals = [sum([result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in xrange(generation) if result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for repeat in xrange(Configurations["Universal"]["Repeats"])]
-                evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["Evaluations"] is not None]
+                old_evals = [sum(
+                    [result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in
+                     xrange(generation) if
+                     result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for
+                             repeat in xrange(Configurations["Universal"]["Repeats"])]
+                evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in
+                                   xrange(Configurations["Universal"]["Repeats"]) if
+                                   temp_result[str(repeat)]["Evaluations"] is not None]
 
-                assert(len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
+                assert (len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
                 if len(hypervolume_list) > 0 and len(evaluation_list) > 0:
                     median_scores.append(aggregate_measure(hypervolume_list))
                     median_evals.append(aggregate_measure(old_evals))
 
             # print "Problem: ", problem.name, " Algorithm: ", algorithm.name, " Mean HyperVolume: ", mean(median_scores)
             scores[algorithm.name] = aggregate_measure(median_scores)
-            axarr.plot(median_evals, median_scores, linestyle='None', label=algorithm.name, marker=algorithm.type, color=algorithm.color, markersize=8, markeredgecolor='none')
+            axarr.plot(median_evals, median_scores, linestyle='None', label=algorithm.name, marker=algorithm.type,
+                       color=algorithm.color, markersize=8, markeredgecolor='none')
             axarr.plot(median_evals, median_scores, color=algorithm.color)
             # axarr[o].set_ylim(0, 130)
             axarr.set_autoscale_on(True)
@@ -342,18 +366,19 @@ def spread_graphs(problems, algorithms, Configurations,aggregate_measure=mean, t
         f.suptitle(problem.name)
         fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
         plt.legend(loc='lower center', bbox_to_anchor=(1, 0.5))
-        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
+        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
+            "%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
         cla()
         problem_scores[problem.name] = scores
     return problem_scores
 
 
-def statistic_reporter(problems, algorithms, Configurations,aggregate_measure=mean,  tag="RunTimes"):
+def statistic_reporter(problems, algorithms, Configurations, aggregate_measure=mean, tag="RunTimes"):
     def get_filename():
         from time import strftime
         date_folder_prefix = strftime("%m-%d-%Y")
         folder_name = "./RawData/ExperimentalRecords/"
-        folder_name = sorted([os.path.join(folder_name,d) for d in os.listdir(folder_name)], key=os.path.getmtime)[-1]
+        folder_name = sorted([os.path.join(folder_name, d) for d in os.listdir(folder_name)], key=os.path.getmtime)[-1]
         from os import listdir
         from os.path import isfile, getmtime
         all_files = [folder_name + "/" + d for d in listdir(folder_name) if isfile(folder_name + "/" + d)]
@@ -369,15 +394,15 @@ def statistic_reporter(problems, algorithms, Configurations,aggregate_measure=me
         ax.bar(ind, y)
         plt.ylabel(tag)
         plt.title(title)
-        plt.xticks(ind + width/2., names)
+        plt.xticks(ind + width / 2., names)
         date_folder_prefix = strftime("%m-%d-%Y")
         if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
             os.makedirs('./Results/Charts/' + date_folder_prefix)
 
         fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
-        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
+        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
+            "%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
         cla()
-
 
     import xml.etree.ElementTree as ET
     doc = ET.parse(get_filename())
@@ -404,17 +429,23 @@ def statistic_reporter(problems, algorithms, Configurations,aggregate_measure=me
         average_evaluation = []
         for a, algorithm in enumerate(algorithms):
             algorithm_name.append(algorithm.name)
-            average_runtime.append(aggregate_measure([float(results[problem.name][algorithm.name][str(r+1)]["run_time"]) for r in xrange(Configurations["Universal"]["Repeats"])]))
-            average_evaluation.append(aggregate_measure([float(results[problem.name][algorithm.name][str(r+1)]["evaluation"]) for r in xrange(Configurations["Universal"]["Repeats"])]))
+            average_runtime.append(aggregate_measure(
+                [float(results[problem.name][algorithm.name][str(r + 1)]["run_time"]) for r in
+                 xrange(Configurations["Universal"]["Repeats"])]))
+            average_evaluation.append(aggregate_measure(
+                [float(results[problem.name][algorithm.name][str(r + 1)]["evaluation"]) for r in
+                 xrange(Configurations["Universal"]["Repeats"])]))
 
         draw(problem.name, average_runtime, algorithm_name, "Runtimes")
         draw(problem.name, average_evaluation, algorithm_name, "Evaluations")
 
 
-def comparision_reporter(problems, algorithms, list_hypervolume_scores, list_spread_scores, list_igd_scores, base_line, tag="Comparisions"):
+def comparision_reporter(problems, algorithms, list_hypervolume_scores, list_spread_scores, list_igd_scores, base_line,
+                         tag="Comparisions"):
     # TODO: write comment
 
-    for measure_name, list_xx_scores in zip(["HyperVolume", "Spread", "IGD"], [list_hypervolume_scores, list_spread_scores, list_igd_scores]):
+    for measure_name, list_xx_scores in zip(["HyperVolume", "Spread", "IGD"],
+                                            [list_hypervolume_scores, list_spread_scores, list_igd_scores]):
 
         print measure_name
         print list_xx_scores
@@ -427,21 +458,22 @@ def comparision_reporter(problems, algorithms, list_hypervolume_scores, list_spr
         for problem in problems:
             base_score = float(x_scores[problem.name][base_line])
             for algorithm in algorithms:
-                print measure_name, problem.name, algorithm.name, x_scores[problem.name][algorithm.name]/base_score
+                print measure_name, problem.name, algorithm.name, x_scores[problem.name][algorithm.name] / base_score
 
-                temp_score = (x_scores[problem.name][algorithm.name]/base_score) * 100
+                temp_score = (x_scores[problem.name][algorithm.name] / base_score) * 100
                 x_dpoints.append([algorithm.name, problem.name, temp_score])
 
         np_x_dpoints = np.array(x_dpoints)
 
         date_folder_prefix = strftime("%m-%d-%Y")
         if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
-                os.makedirs('./Results/Charts/' + date_folder_prefix)
+            os.makedirs('./Results/Charts/' + date_folder_prefix)
         fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
-        file_name = './Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + tag + measure_name + '.png'
+        file_name = './Results/Charts/' + date_folder_prefix + '/figure' + str(
+            "%02d" % fignum) + "_" + tag + measure_name + '.png'
 
         from Graphs.grouped_bar_plots import barplot
-        barplot(np_x_dpoints, file_name, tag + measure_name, {alg.name:alg.color for alg in algorithms})
+        barplot(np_x_dpoints, file_name, tag + measure_name, {alg.name: alg.color for alg in algorithms})
 
 
 def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_measure=mean, tag="IGD"):
@@ -463,7 +495,6 @@ def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_me
                     for repeat in final_frontiers[key]:
                         unpacked_frontier.extend(repeat)
 
-
                 # Vivek: I have noticed that some of the algorithms (specifically VALE8) produces duplicate points
                 # which would then show up in nondominated sort and tip the scale in its favour. So I would like to remove
                 # all the duplicate points from the population and then perform a non dominated sort
@@ -480,9 +511,9 @@ def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_me
 
                 # Vivek: I first tried to choose only the non dominated solutions. But then there are only few solutions
                 # (in order of 1-2) so I am just doing a non dominated sorting with crowd distance
-                actual_frontier = [sol.fitness.fitness for sol in get_non_dominated_solutions(problem, population, Configurations)]
-                assert(len(actual_frontier) == Configurations["Universal"]["Population_Size"])
-
+                actual_frontier = [sol.fitness.fitness for sol in
+                                   get_non_dominated_solutions(problem, population, Configurations)]
+                assert (len(actual_frontier) == Configurations["Universal"]["Population_Size"])
 
                 generation_dict = {}
                 for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
@@ -510,18 +541,16 @@ def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_me
             problem.name = actual_name
         return problem_dict, actual_frontier
 
-
     from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
     result, actual_frontier = get_data_from_archive(gtechniques, problems, algorithms, Configurations, get_hyper_volume)
 
-
     date_folder_prefix = strftime("%m-%d-%Y")
     if not os.path.isdir('./Results/Final_Frontier/' + date_folder_prefix):
-            os.makedirs('./Results/Final_Frontier/' + date_folder_prefix)
+        os.makedirs('./Results/Final_Frontier/' + date_folder_prefix)
 
     date_folder_prefix = strftime("%m-%d-%Y")
     if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
-            os.makedirs('./Results/Charts/' + date_folder_prefix)
+        os.makedirs('./Results/Charts/' + date_folder_prefix)
 
     problem_scores = {}
     for problem in problems:
@@ -537,13 +566,12 @@ def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_me
             # write the final frontier
             fignum = len([name for name in os.listdir('./Results/Final_Frontier/' + date_folder_prefix)]) + 1
             filename_frontier = './Results/Final_Frontier/' + date_folder_prefix + '/table' + str("%02d" % fignum) + "_" \
-                                 + problem.name + "_" + tag + '.csv'
+                                + problem.name + "_" + tag + '.csv'
             ffrontier = open(filename_frontier, "w")
             for l in actual_frontier:
                 string_l = ",".join(map(str, l))
                 ffrontier.write(string_l + "\n")
             ffrontier.close()
-
 
             scores = {}
             for algorithm in algorithms:
@@ -554,24 +582,33 @@ def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_me
 
                 for generation in xrange(Configurations["Universal"]["No_of_Generations"]):
                     temp_result = result[problem.name][str(generation)][algorithm.name]
-                    hypervolume_list = [temp_result[str(repeat)]["IGD"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["IGD"] is not None]
+                    hypervolume_list = [temp_result[str(repeat)]["IGD"] for repeat in
+                                        xrange(Configurations["Universal"]["Repeats"]) if
+                                        temp_result[str(repeat)]["IGD"] is not None]
 
-                    old_evals = [sum([result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in xrange(generation) if result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for repeat in xrange(Configurations["Universal"]["Repeats"])]
-                    evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in xrange(Configurations["Universal"]["Repeats"]) if temp_result[str(repeat)]["Evaluations"] is not None]
+                    old_evals = [sum(
+                        [result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] for tgen in
+                         xrange(generation) if
+                         result[problem.name][str(tgen)][algorithm.name][str(repeat)]["Evaluations"] is not None]) for
+                                 repeat in xrange(Configurations["Universal"]["Repeats"])]
+                    evaluation_list = [temp_result[str(repeat)]["Evaluations"] for repeat in
+                                       xrange(Configurations["Universal"]["Repeats"]) if
+                                       temp_result[str(repeat)]["Evaluations"] is not None]
 
-                    assert(len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
+                    assert (len(hypervolume_list) == len(evaluation_list)), "Something is wrong"
                     if len(hypervolume_list) > 0 and len(evaluation_list) > 0:
                         o25 = getPercentile(hypervolume_list, 25)
                         o50 = getPercentile(hypervolume_list, 50)
                         o75 = getPercentile(hypervolume_list, 75)
-                        Tables_Content += str(generation) + "," + str(o25) + "," + str(o50) + "," + str(o75) + "," + str(
+                        Tables_Content += str(generation) + "," + str(o25) + "," + str(o50) + "," + str(
+                            o75) + "," + str(
                             (o25 - baseline_igd) / baseline_igd) + "," + str(
                             (o50 - baseline_igd) / baseline_igd) + "," + str((o75 - baseline_igd) / baseline_igd) + "\n"
                         median_scores.append(aggregate_measure(hypervolume_list))
                         median_evals.append(aggregate_measure(old_evals))
 
                 if not os.path.isdir('./Results/Tables/' + date_folder_prefix):
-                        os.makedirs('./Results/Tables/' + date_folder_prefix)
+                    os.makedirs('./Results/Tables/' + date_folder_prefix)
                 fignum = len([name for name in os.listdir('./Results/Tables/' + date_folder_prefix)]) + 1
                 filename_table = './Results/Tables/' + date_folder_prefix + '/table' + str("%02d" % fignum) + "_" \
                                  + algorithm.name + "_" + problem.name + "_" + tag + '.csv'
@@ -579,25 +616,30 @@ def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_me
                 # print Tables_Content
                 open(filename_table, "w").write(Tables_Content)
 
-                if gtechnique.__name__ == "sway": lstyle = "--"
-                else: lstyle = '-'
+                if gtechnique.__name__ == "sway":
+                    lstyle = "--"
+                else:
+                    lstyle = '-'
 
                 scores[algorithm.name] = aggregate_measure(median_scores)
-                axarr.plot(median_evals, median_scores, linestyle=lstyle, label=algorithm.name + "_" + gtechnique.__name__, marker=algorithm.type, color=algorithm.color, markersize=8, markeredgecolor='none')
+                axarr.plot(median_evals, median_scores, linestyle=lstyle,
+                           label=algorithm.name + "_" + gtechnique.__name__, marker=algorithm.type,
+                           color=algorithm.color, markersize=8, markeredgecolor='none')
                 # axarr.plot(median_evals, median_scores, color=algorithm.color)
                 # axarr[o].set_ylim(0, 130)
                 axarr.set_autoscale_on(True)
                 axarr.set_xlim([-10, 10000])
                 axarr.set_xscale('log', nonposx='clip')
+                axarr.set_yscale('log', nonposx='clip')
                 axarr.set_ylabel("IGD")
 
             problem.name = actual_name
 
-
         f.suptitle(problem.name)
         fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
-        plt.legend(loc='upper center')
-        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str("%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
+        plt.legend(frameon=False, loc='lower center', bbox_to_anchor=(0.5, -0.025), fancybox=True, ncol=2)
+        plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
+            "%02d" % fignum) + "_" + problem.name + "_" + tag + '.png', dpi=100)
         cla()
         problem_scores[problem.name] = scores
 
@@ -605,10 +647,12 @@ def igd_reporter(problems, algorithms, gtechniques, Configurations, aggregate_me
 
 
 def baseline_objectives(prob, Configurations, gtechnique):
-    file_handle = open("data/" + prob.name + "-p" + str(Configurations["Universal"]["Population_Size"]) + "-d"  + str(len(prob.decisions)) + "-o" + str(len(prob.objectives)) + "-g" + gtechnique.__name__ + "-dataset.txt", 'rb')
+    file_handle = open("data/" + prob.name + "-p" + str(Configurations["Universal"]["Population_Size"]) + "-d" + str(
+        len(prob.decisions)) + "-o" + str(len(prob.objectives)) + "-g" + gtechnique.__name__ + "-dataset.txt", 'rb')
     objectives = []
     for i, line in enumerate(file_handle):
-        if i != 0 and i <= Configurations["Universal"]["Population_Size"]: objectives.append(map(float, line.strip().split(","))[-1*len(prob.objectives):])
+        if i != 0 and i <= Configurations["Universal"]["Population_Size"]: objectives.append(
+            map(float, line.strip().split(","))[-1 * len(prob.objectives):])
     return objectives
 
 
@@ -627,7 +671,7 @@ def hypervolume_approximate_ranking(problems, algorithms, Configurations, tag="h
                 for repeat in xrange(Configurations["Universal"]["Repeats"]):
                     algorithm_dict = {}
                     for algorithm in algorithms:
-                        algorithm_dict[algorithm.name] ={}
+                        algorithm_dict[algorithm.name] = {}
                         try:
                             candidates = [jmoo_individual(problem, pop.decisions, pop.objectives) for pop in
                                           population[algorithm.name][repeat]]
@@ -647,10 +691,9 @@ def hypervolume_approximate_ranking(problems, algorithms, Configurations, tag="h
             problem_dict[problem.name] = generation_dict
         return problem_dict
 
-
     date_folder_prefix = strftime("%m-%d-%Y")
     if not os.path.isdir('./Results/Approx_HyperVolume/' + date_folder_prefix):
-            os.makedirs('./Results/Approx_HyperVolume/' + date_folder_prefix)
+        os.makedirs('./Results/Approx_HyperVolume/' + date_folder_prefix)
 
     result = get_data_from_archive(problems, algorithms, Configurations)
     for problem in problems:
@@ -663,7 +706,7 @@ def hypervolume_approximate_ranking(problems, algorithms, Configurations, tag="h
         # write the final frontier
         fignum = len([name for name in os.listdir('./Results/Approx_HyperVolume/' + date_folder_prefix)]) + 1
         filename_frontier = './Results/Approx_HyperVolume/' + date_folder_prefix + '/table' + str("%02d" % fignum) + "_" \
-                             + problem.name + "_" + tag + '.csv'
+                            + problem.name + "_" + tag + '.csv'
         hv_approx = open(filename_frontier, "w")
         hv_approx.write(ranking_string)
         hv_approx.close()
@@ -678,6 +721,3 @@ def charter_reporter(problems, algorithms, gtechniques, Configurations, tag=""):
     igd_scores = igd_reporter(problems, algorithms, gtechniques, Configurations)
     # hypervolume_approximate_ranking(problems, algorithms, Configurations)
     return [igd_scores]
-
-
-

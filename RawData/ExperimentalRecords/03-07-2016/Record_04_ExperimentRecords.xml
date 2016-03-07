@@ -1,0 +1,110 @@
+<Experiment>
+<Generation Technique name = 'standard_random'>
+<Problem name = 'POM3B'>
+<Algorithm name = 'NSGA3'>
+<Run id = '1'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>34.0530149937</RunTime>
+<IBD>0.886354755979</IBD>
+<IBS>0.0592954054455</IBS>
+<Cost>347.514578438</Cost>
+<Score>0.0</Score>
+<Idle>0.0</Idle>
+</Summary></Run>
+<Run id = '2'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>32.0982160568</RunTime>
+<IBD>0.878782031178</IBD>
+<IBS>0.0516228797718</IBS>
+<Cost>695.569173403</Cost>
+<Score>0.0</Score>
+<Idle>0.0</Idle>
+</Summary></Run>
+<Run id = '3'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>29.7694380283</RunTime>
+<IBD>0.870697785631</IBD>
+<IBS>0.0369331604911</IBS>
+<Cost>458.505017078</Cost>
+<Score>0.0</Score>
+<Idle>0.0</Idle>
+</Summary></Run>
+<Run id = '4'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>29.5146439075</RunTime>
+<IBD>0.864306961787</IBD>
+<IBS>0.0386038774831</IBS>
+<Cost>575.922225402</Cost>
+<Score>0.0</Score>
+<Idle>0.0</Idle>
+</Summary></Run>
+<Run id = '5'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>32.4376909733</RunTime>
+<IBD>0.872854619577</IBD>
+<IBS>0.0457096159021</IBS>
+<Cost>248.884151628</Cost>
+<Score>0.0</Score>
+<Idle>0.0</Idle>
+</Summary></Run>
+</Algorithm>
+<Algorithm name = 'MOEAD_PBI'>
+<Run id = '1'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>29.87768507</RunTime>
+<IBD>0.891026535368</IBD>
+<IBS>0.0752977293619</IBS>
+<Cost>687.034733543</Cost>
+<Score>0.121101244488</Score>
+<Idle>0.0</Idle>
+</Summary></Run>
+<Run id = '2'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>27.6618289948</RunTime>
+<IBD>0.761598372388</IBD>
+<IBS>0.023804986283</IBS>
+<Cost>271.934750519</Cost>
+<Score>0.0</Score>
+<Idle>0.0</Idle>
+</Summary></Run>
+<Run id = '3'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>35.2006840706</RunTime>
+<IBD>0.936868214332</IBD>
+<IBS>0.0</IBS>
+<Cost>0</Cost>
+<Score>1.0</Score>
+<Idle>0</Idle>
+</Summary></Run>
+<Run id = '4'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>31.8814752102</RunTime>
+<IBD>0.917920613822</IBD>
+<IBS>0.0649890996185</IBS>
+<Cost>274.92906185</Cost>
+<Score>0.201444290627</Score>
+<Idle>0.0</Idle>
+</Summary></Run>
+<Run id = '5'>
+<Summary>
+<NumEvals>9292</NumEvals>
+<RunTime>37.3666129112</RunTime>
+<IBD>0.851390695151</IBD>
+<IBS>0.0331306917753</IBS>
+<Cost>591.426815337</Cost>
+<Score>0.0</Score>
+<Idle>0.25</Idle>
+</Summary></Run>
+</Algorithm>
+</Problem>
+</Generation Technique>
+</Experiment>
