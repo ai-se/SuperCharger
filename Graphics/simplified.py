@@ -32,7 +32,7 @@ def get_content(problem, file, population_size, initial_line=False):
     contents = open(file, "r").readlines()
     if initial_line is False:
         for content in contents[:population_size]:
-            objectives.append([float(c) for c in content.split(",")][-1 * number_of_objectives:])
+            objectives.append([float(c) for count,c in enumerate(content.split(","))][-1 * number_of_objectives:])
     else:
         for content in contents[1:population_size+1]:
             objectives.append([float(c) for c in content.split(",")][-1 * number_of_objectives:])
@@ -48,8 +48,6 @@ def get_content_all(problem, file, population_size):
         objectives.append(temp)
     return objectives
 
-
-need to fix the normalization part
 def remove_duplicates(objectives):
     # remove duplicates
     import itertools
@@ -78,6 +76,18 @@ def get_actual_frontier(problem, algorithms, gtechniques, Configurations, tag):
     return actual_frontier
 
 
+def get_normalization_values(problem,  gtechnique, Configurations):
+    folder_name = "./Data/"
+    filename = folder_name + problem.name + "-p" + str(
+        Configurations["Universal"]["Population_Size"]) + "-d" + str(len(problem.decisions)) + "-o" + str(
+        len(problem.objectives)) + "-g" + gtechnique.__name__ + "-dataset.txt"
+
+    global normalization
+    number_of_objectives = len(problem.objectives)
+    contents = open(filename, "r").readlines()
+    normalization = [map(float, c.split(',')) for c in contents[-1*number_of_objectives:]]
+
+
 def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
     pop_size = Configurations["Universal"]["Population_Size"]
     folder_name = "./Data/"
@@ -85,7 +95,16 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
     filename = folder_name + problem.name + "-p" + str(
         Configurations["Universal"]["Population_Size"]) + "-d" + str(len(problem.decisions)) + "-o" + str(
         len(problem.objectives)) + "-g" + gtechnique.__name__ + "-dataset.txt"
-    return get_content(problem, filename, pop_size, initial_line=True)
+    content = get_content(problem, filename, pop_size, initial_line=True)
+    return content
+
+
+def apply_normalization(problem, points):
+    norm_points = [[0 for _ in xrange(len(problem.objectives))] for _ in xrange(len(points))]
+    for i, point in enumerate(points):
+        for objective in xrange(len(problem.objectives)):
+            norm_points[i][objective] = (point[objective] - normalization[objective][0])/(normalization[objective][2] - normalization[objective][0])
+    return norm_points
 
 
 def run2(problem, algorithms, gtechniques, Configurations, tag):
@@ -96,6 +115,7 @@ def run2(problem, algorithms, gtechniques, Configurations, tag):
         os.makedirs('./Results/Charts/' + date_folder_prefix)
 
     actual_frontier = get_actual_frontier(problem, algorithms, gtechniques, Configurations, tag)
+    # actual_frontier = apply_normalization(problem[-1], actual_frontier)
     results = {}
     number_of_repeats = Configurations["Universal"]["Repeats"]
     generations = Configurations["Universal"]["No_of_Generations"]
@@ -110,6 +130,7 @@ def run2(problem, algorithms, gtechniques, Configurations, tag):
             results[algorithm.name][gtechnique.__name__] = []
     for algorithm in algorithms:
         for gtechnique in gtechniques:
+
             points = get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations)
             from PerformanceMetrics.IGD.IGD_Calculation import IGD
             results[algorithm.name][gtechnique.__name__].append(IGD(actual_frontier, points))
@@ -118,9 +139,10 @@ def run2(problem, algorithms, gtechniques, Configurations, tag):
                 temp_igd_list = []
                 files = find_files_for_generations(problem[-1].name, algorithm.name, gtechnique.__name__, number_of_repeats, generation+1)
                 for file in files:
-                    temp_igd_list.append(IGD(actual_frontier, get_content(problem[-1], file, pop_size)))
-                from numpy import median
-                results[algorithm.name][gtechnique.__name__].append(median(temp_igd_list))
+                    temp_value = get_content(problem[-1], file, pop_size)
+                    temp_igd_list.append(IGD(actual_frontier, temp_value))
+                from numpy import mean
+                results[algorithm.name][gtechnique.__name__].append(mean(temp_igd_list))
 
             if gtechnique.__name__ == "sway":
                 lstyle = "--"
@@ -133,12 +155,12 @@ def run2(problem, algorithms, gtechniques, Configurations, tag):
                label=algorithm.name + "_" + gtechnique.__name__, marker=mk,
                color=algorithm.color, markersize=8, markeredgecolor='none')
             axarr.set_autoscale_on(True)
-            axarr.set_xlim([-10, 10000])
+            axarr.set_xlim([-100, 10000])
             axarr.set_xscale('log', nonposx='clip')
             axarr.set_yscale('log', nonposx='clip')
             axarr.set_ylabel("IGD")
 
-            print problem[-1].name, algorithm.name, gtechnique.__name__, results[algorithm.name][gtechnique.__name__]
+            print problem[-1].name, algorithm.name, gtechnique.__name__ , #results[algorithm.name][gtechnique.__name__]
 
     f.suptitle(problem[-1].name)
     fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1

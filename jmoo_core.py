@@ -122,7 +122,7 @@ class jmoo_chart_report:
     def doit(self, tagnote=""):
         igd_list = []
         for problem in self.tests.problems:
-            igd_list.append(run2([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag=tagnote))
+            igd_list.append(run2([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="IGD"))
             # igd_list.append(charter_reporter([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag=tagnote))
         # statistic_reporter(self.tests.problems, self.tests.algorithms, self.Configurations, tag=tagnote)
         # comparision_reporter(self.tests.problems, self.tests.algorithms, [hvp[0] for hvp in hv_spread], [hvp[1] for hvp in hv_spread], [hvp[2] for hvp in hv_spread], "GALE")
