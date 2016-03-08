@@ -2,6 +2,9 @@ from __future__ import division
 import matplotlib.pyplot as plt
 
 
+normalization = []
+
+
 def find_files(problem, algorithm, ipg, rep, gen):
     sep = "_"
     main_file_path = "./RawData/PopulationArchives/"
@@ -46,7 +49,7 @@ def get_content_all(problem, file, population_size):
     return objectives
 
 
-
+need to fix the normalization part
 def remove_duplicates(objectives):
     # remove duplicates
     import itertools
@@ -86,7 +89,6 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
 
 
 def run2(problem, algorithms, gtechniques, Configurations, tag):
-
     import os
     from time import strftime
     date_folder_prefix = strftime("%m-%d-%Y")
@@ -120,11 +122,15 @@ def run2(problem, algorithms, gtechniques, Configurations, tag):
                 from numpy import median
                 results[algorithm.name][gtechnique.__name__].append(median(temp_igd_list))
 
-            if gtechnique.__name__ == "sway": lstyle = "--"
-            else: lstyle = '-'
+            if gtechnique.__name__ == "sway":
+                lstyle = "--"
+                mk = "v"
+            else:
+                lstyle = '-'
+                mk = algorithm.type
 
             axarr.plot(evaluations, results[algorithm.name][gtechnique.__name__], linestyle=lstyle,
-               label=algorithm.name + "_" + gtechnique.__name__, marker=algorithm.type,
+               label=algorithm.name + "_" + gtechnique.__name__, marker=mk,
                color=algorithm.color, markersize=8, markeredgecolor='none')
             axarr.set_autoscale_on(True)
             axarr.set_xlim([-10, 10000])
@@ -132,12 +138,15 @@ def run2(problem, algorithms, gtechniques, Configurations, tag):
             axarr.set_yscale('log', nonposx='clip')
             axarr.set_ylabel("IGD")
 
+            print problem[-1].name, algorithm.name, gtechnique.__name__, results[algorithm.name][gtechnique.__name__]
+
     f.suptitle(problem[-1].name)
     fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
     plt.legend(frameon=False, loc='lower center', bbox_to_anchor=(0.5, -0.025), fancybox=True, ncol=2)
     plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
     "%02d" % fignum) + "_" + problem[-1].name + "_" + tag + '.png', dpi=100)
     plt.cla()
+
 
     print "Processed: ", problem[-1].name
 
