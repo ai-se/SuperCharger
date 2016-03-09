@@ -101,15 +101,20 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
     filename = folder_name + problem.name + "-p" + str(
         Configurations["Universal"]["Population_Size"]) + "-d" + str(len(problem.decisions)) + "-o" + str(
         len(problem.objectives)) + "-g" + gtechnique.__name__ + "-dataset.txt"
-    content = get_content_all(problem, filename, pop_size)
-    # change into jmoo_individual
-    from jmoo_individual import jmoo_individual
-    population = [jmoo_individual(problem, i[number_of_objectives:], i[:number_of_objectives]) for i in content]
+    content = get_content(problem, filename, pop_size, initial_line=True)
+    return content
 
-    from jmoo_algorithms import get_non_dominated_solutions
-    actual_frontier = [sol.fitness.fitness for sol in
-                       get_non_dominated_solutions(problem, population, Configurations)]
-    return actual_frontier
+
+    # content = get_content_all(problem, filename, pop_size)
+
+    # # change into jmoo_individual
+    # from jmoo_individual import jmoo_individual
+    # population = [jmoo_individual(problem, i[number_of_objectives:], i[:number_of_objectives]) for i in content]
+    #
+    # from jmoo_algorithms import get_non_dominated_solutions
+    # actual_frontier = [sol.fitness.fitness for sol in
+    #                    get_non_dominated_solutions(problem, population, Configurations)]
+    # return actual_frontier
 
 
 def apply_normalization(problem, points):
@@ -151,6 +156,8 @@ def draw_igd(problem, algorithms, gtechniques, Configurations, tag):
 
             for generation in xrange(generations):
                 print ".",
+                import sys
+                sys.stdout.flush()
                 temp_igd_list = []
                 files = find_files_for_generations(problem[-1].name, algorithm.name, gtechnique.__name__, number_of_repeats, generation+1)
                 for file in files:
@@ -166,19 +173,26 @@ def draw_igd(problem, algorithms, gtechniques, Configurations, tag):
                 from numpy import mean
                 results[algorithm.name][gtechnique.__name__].append(mean(temp_igd_list))
 
+
             if gtechnique.__name__ == "sway":
                 lstyle = "--"
                 mk = "v"
+                ms = 4
+            elif gtechnique.__name__ == "wierd":
+                lstyle = "-"
+                mk = "o"
+                ms = 4
             else:
                 lstyle = '-'
                 mk = algorithm.type
+                ms = 8
 
             axarr.plot(evaluations, results[algorithm.name][gtechnique.__name__], linestyle=lstyle,
                label=algorithm.name + "_" + gtechnique.__name__, marker=mk,
-               color=algorithm.color, markersize=8, markeredgecolor='none')
+               color=algorithm.color, markersize=ms, markeredgecolor='none')
             axarr.set_autoscale_on(True)
-            axarr.set_xlim([-100, 10000])
-            axarr.set_xscale('log', nonposx='clip')
+            axarr.set_xlim([0, 10000])
+            # axarr.set_xscale('log', nonposx='clip')
             axarr.set_yscale('log', nonposx='clip')
             axarr.set_ylabel("IGD")
 
@@ -192,6 +206,8 @@ def draw_igd(problem, algorithms, gtechniques, Configurations, tag):
     "%02d" % fignum) + "_" + problem[-1].name + "_" + tag + '.png', dpi=100,bbox_inches='tight')
     plt.cla()
     print "Processed: ", problem[-1].name
+    import pdb
+    pdb.set_trace()
 
 
 def draw_hv(problem, algorithms, gtechniques, Configurations, tag):
@@ -220,44 +236,50 @@ def draw_hv(problem, algorithms, gtechniques, Configurations, tag):
             points = get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations)
             from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
             results[algorithm.name][gtechnique.__name__].append(get_hyper_volume(reference_point, points))
+    print results
+    import pdb
+    pdb.set_trace()
 
-            for generation in xrange(generations):
-                print ".",
-                temp_igd_list = []
-                files = find_files_for_generations(problem[-1].name, algorithm.name, gtechnique.__name__, number_of_repeats, generation+1)
-                for file in files:
-                    temp_value = get_content(problem[-1], file, pop_size)
-                    # print [[round(tt, 2) for tt in t] for t in temp_value]
-                    temp_igd_list.append(get_hyper_volume(reference_point, temp_value))
-                from numpy import mean
-                results[algorithm.name][gtechnique.__name__].append(mean(temp_igd_list))
-
-            if gtechnique.__name__ == "sway":
-                lstyle = "--"
-                mk = "v"
-            else:
-                lstyle = '-'
-                mk = algorithm.type
-
-            axarr.plot(evaluations, results[algorithm.name][gtechnique.__name__], linestyle=lstyle,
-               label=algorithm.name + "_" + gtechnique.__name__, marker=mk,
-               color=algorithm.color, markersize=8, markeredgecolor='none')
-            axarr.set_autoscale_on(True)
-            axarr.set_xlim([-100, 10000])
-            axarr.set_xscale('log', nonposx='clip')
-            # axarr.set_yscale('log', nonposx='clip')
-            axarr.set_ylabel("HyperVolume")
-
-            print problem[-1].name, algorithm.name, gtechnique.__name__ , #results[algorithm.name][gtechnique.__name__]
-
-    f.suptitle(problem[-1].name)
-    fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
-    plt.legend(frameon=False, loc='lower center', bbox_to_anchor=(0.5, -0.025), fancybox=True, ncol=2)
-    plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
-    "%02d" % fignum) + "_" + problem[-1].name + "_" + tag + '.png', dpi=100, bbox_inches='tight')
-    plt.cla()
-
-    print "Processed: ", problem[-1].name
+    #         for generation in xrange(generations):
+    #             print ".",
+    #             temp_igd_list = []
+    #             files = find_files_for_generations(problem[-1].name, algorithm.name, gtechnique.__name__, number_of_repeats, generation+1)
+    #             for file in files:
+    #                 temp_value = get_content(problem[-1], file, pop_size)
+    #                 # print [[round(tt, 2) for tt in t] for t in temp_value]
+    #                 temp_igd_list.append(get_hyper_volume(reference_point, temp_value))
+    #             from numpy import mean
+    #             results[algorithm.name][gtechnique.__name__].append(mean(temp_igd_list))
+    #
+    #         if gtechnique.__name__ == "sway":
+    #             lstyle = "--"
+    #             mk = "v"
+    #         elif gtechnique.__name__ == "wierd":
+    #             lstyle = "-"
+    #             mk = "o"
+    #         else:
+    #             lstyle = '-'
+    #             mk = algorithm.type
+    #
+    #         axarr.plot(evaluations, results[algorithm.name][gtechnique.__name__], linestyle=lstyle,
+    #            label=algorithm.name + "_" + gtechnique.__name__, marker=mk,
+    #            color=algorithm.color, markersize=8, markeredgecolor='none')
+    #         axarr.set_autoscale_on(True)
+    #         axarr.set_xlim([-100, 10000])
+    #         axarr.set_xscale('log', nonposx='clip')
+    #         # axarr.set_yscale('log', nonposx='clip')
+    #         axarr.set_ylabel("HyperVolume")
+    #
+    #         print problem[-1].name, algorithm.name, gtechnique.__name__ , #results[algorithm.name][gtechnique.__name__]
+    #
+    # f.suptitle(problem[-1].name)
+    # fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
+    # plt.legend(frameon=False, loc='lower center', bbox_to_anchor=(0.5, -0.025), fancybox=True, ncol=2)
+    # plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
+    # "%02d" % fignum) + "_" + problem[-1].name + "_" + tag + '.png', dpi=100, bbox_inches='tight')
+    # plt.cla()
+    #
+    # print "Processed: ", problem[-1].name
 
 
 def find_extreme_points(problem, points):
@@ -302,44 +324,50 @@ def draw_spread(problem, algorithms, gtechniques, Configurations, tag):
         for gtechnique in gtechniques:
 
             points = get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations)
+
             from PerformanceMetrics.Spread.Spread import spread_calculator
-            results[algorithm.name][gtechnique.__name__].append(spread_calculator(points, extreme_point1,
-                                                                              extreme_point2))
+            print algorithm.name, extreme_point1,extreme_point2
+            results[algorithm.name][gtechnique.__name__].append(spread_calculator(points, extreme_point1,extreme_point2))
 
-            for generation in xrange(generations):
-                print ".",
-                temp_igd_list = []
-                files = find_files_for_generations(problem[-1].name, algorithm.name, gtechnique.__name__, number_of_repeats, generation+1)
-                for file in files:
-                    temp_value = get_content(problem[-1], file, pop_size)
-                    # print [[round(tt, 2) for tt in t] for t in temp_value]
-                    temp_igd_list.append(spread_calculator(temp_value, extreme_point1,extreme_point2))
-                from numpy import mean
-                results[algorithm.name][gtechnique.__name__].append(mean(temp_igd_list))
-
-            if gtechnique.__name__ == "sway":
-                lstyle = "--"
-                mk = "v"
-            else:
-                lstyle = '-'
-                mk = algorithm.type
-
-            axarr.plot(evaluations, results[algorithm.name][gtechnique.__name__], linestyle=lstyle,
-               label=algorithm.name + "_" + gtechnique.__name__, marker=mk,
-               color=algorithm.color, markersize=8, markeredgecolor='none')
-            axarr.set_autoscale_on(True)
-            axarr.set_xlim([-100, 10000])
-            axarr.set_xscale('log', nonposx='clip')
-            # axarr.set_yscale('log', nonposx='clip')
-            axarr.set_ylabel("Spread")
-
-            print problem[-1].name, algorithm.name, gtechnique.__name__ , #results[algorithm.name][gtechnique.__name__]
-
-    f.suptitle(problem[-1].name)
-    fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
-    plt.legend(frameon=False, loc='lower center', bbox_to_anchor=(0.5, -0.025), fancybox=True, ncol=2)
-    plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
-    "%02d" % fignum) + "_" + problem[-1].name + "_" + tag + '.png', dpi=100,bbox_inches='tight')
-    plt.cla()
-
-    print "Processed: ", problem[-1].name
+    print results
+    #
+    #         for generation in xrange(generations):
+    #             print ".",
+    #             temp_igd_list = []
+    #             files = find_files_for_generations(problem[-1].name, algorithm.name, gtechnique.__name__, number_of_repeats, generation+1)
+    #             for file in files:
+    #                 temp_value = get_content(problem[-1], file, pop_size)
+    #                 # print [[round(tt, 2) for tt in t] for t in temp_value]
+    #                 temp_igd_list.append(spread_calculator(temp_value, extreme_point1,extreme_point2))
+    #             from numpy import mean
+    #             results[algorithm.name][gtechnique.__name__].append(mean(temp_igd_list))
+    #
+    #         if gtechnique.__name__ == "sway":
+    #             lstyle = "--"
+    #             mk = "v"
+    #         elif gtechnique.__name__ == "wierd":
+    #             lstyle = "-"
+    #             mk = "o"
+    #         else:
+    #             lstyle = '-'
+    #             mk = algorithm.type
+    #
+    #         axarr.plot(evaluations, results[algorithm.name][gtechnique.__name__], linestyle=lstyle,
+    #            label=algorithm.name + "_" + gtechnique.__name__, marker=mk,
+    #            color=algorithm.color, markersize=8, markeredgecolor='none')
+    #         axarr.set_autoscale_on(True)
+    #         axarr.set_xlim([-100, 10000])
+    #         axarr.set_xscale('log', nonposx='clip')
+    #         # axarr.set_yscale('log', nonposx='clip')
+    #         axarr.set_ylabel("Spread")
+    #
+    #         print problem[-1].name, algorithm.name, gtechnique.__name__ , #results[algorithm.name][gtechnique.__name__]
+    #
+    # f.suptitle(problem[-1].name)
+    # fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
+    # plt.legend(frameon=False, loc='lower center', bbox_to_anchor=(0.5, -0.025), fancybox=True, ncol=2)
+    # plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str(
+    # "%02d" % fignum) + "_" + problem[-1].name + "_" + tag + '.png', dpi=100,bbox_inches='tight')
+    # plt.cla()
+    #
+    # print "Processed: ", problem[-1].name

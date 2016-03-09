@@ -122,8 +122,11 @@ class jmoo_chart_report:
     def doit(self, tagnote=""):
         igd_list = []
         for problem in self.tests.problems:
-            draw_hv([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="HV")
-            draw_spread([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="SPR")
+            # print "HyperVolume"
+            # draw_hv([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="HV")
+            # print "Spread"
+            # draw_spread([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="SPR")
+            print "IGD"
             draw_igd([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="IGD")
 
 
@@ -232,16 +235,6 @@ class JMOO:
                     sr = open(DATA_PREFIX + SUMMARY_RESULTS + filename, 'w')
                     rrs = open(DATA_PREFIX + RRS_TABLE + "_" + filename, 'w')
 
-                    # Results Record:
-                    # # # Every generation
-                    # # # Decisions + Objectives
-
-                    # Summary Record
-                    # - Best Generation Only
-                    # - Number of Evaluations + Aggregated Objective Score
-                    # -
-
-
                     fa = open("Data/results_" + filename, 'w')
                     strings = ["NumEval"] \
                               + [obj.name + "_median,(%chg),"
@@ -250,7 +243,6 @@ class JMOO:
                     for s in strings: fa.write(s + ",")
                     fa.write("\n")
                     fa.close()
-
                     IGD_Values = []
                     # Repeat Core
                     for repeat in range(self.configurations["Universal"]["Repeats"]):
@@ -270,8 +262,6 @@ class JMOO:
                         # Find best generation
                         representative = statBox.box[0]
                         for r, rep in enumerate(statBox.box):
-                            # for indi in rep.population:
-                            #     print indi
                             if rep.IBD < representative.IBD:
                                 representative = statBox.box[r]
                         representatives.append(representative)

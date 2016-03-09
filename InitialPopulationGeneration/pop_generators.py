@@ -22,6 +22,11 @@ def sway(problem, n):
     return dataset
 
 
+def wierd(problem, n):
+    dataset = []
+    for run in range(n): dataset.append(problem.generateWierd())
+    return dataset
+
 
 '''#################################### Utilities ############################################'''
 

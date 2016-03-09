@@ -34,7 +34,7 @@ from jmoo_problems import *
 # from Problems.CPM.cpm_reduction import *
 from Problems.NRP.nrp import *
 # from Problems.MONRP.monrp import *
-from InitialPopulationGeneration.pop_generators import standard_random, sway
+from InitialPopulationGeneration.pop_generators import standard_random, sway, wierd
 from Problems.POM3.POM3B import POM3B
 from Problems.POM3.POM3A import POM3A
 from Problems.POM3.POM3C import POM3C
@@ -72,13 +72,13 @@ problems =[
 
 ]
 
-GTechniques = [standard_random, sway]
+GTechniques = [standard_random, sway]  #, wierd
 
 build_new_pop = False                                       # Whether or not to rebuild the initial population
 
 Configurations = {
     "Universal": {
-        "Repeats" : 5,
+        "Repeats" : 10,
         "Population_Size" : 92,
         "No_of_Generations" : 100,
     },
