@@ -59,7 +59,7 @@ algorithms = [
 
 problems =[
     # dtlz1(9, 5)
-    POM3A(),
+    # POM3A(),
     POM3B(),
     POM3C(),
     POM3D(),
