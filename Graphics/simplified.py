@@ -455,3 +455,73 @@ def graph_build(problem, means, stds, labels, colors, evals, title):
     ax.grid()
     fignum = len([name for name in os.listdir('./Results/Charts/' + date_folder_prefix)]) + 1
     plt.savefig('./Results/Charts/' + date_folder_prefix + '/figure' + str( "%02d" % fignum) + "_" + problem[-1].name + "_" + title + '_MOEAD.png', dpi=100,bbox_inches='tight')
+
+
+def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, tag):
+    import os
+    from time import strftime
+    date_folder_prefix = strftime("%m-%d-%Y")
+    if not os.path.isdir('./Results/Tables/' + date_folder_prefix):
+        os.makedirs('./Results/Tables/' + date_folder_prefix)
+
+    results = {}
+    number_of_repeats = Configurations["Universal"]["Repeats"]
+    generations = Configurations["Universal"]["No_of_Generations"]
+    pop_size = Configurations["Universal"]["Population_Size"]
+    evaluations = [pop_size*i for i in xrange(generations+1)]
+
+    f, axarr = plt.subplots(1)
+
+    for algorithm in algorithms:
+        results[algorithm.name] = {}
+        for gtechnique in gtechniques:
+            results[algorithm.name][gtechnique.__name__] = {}
+            for objective in xrange(len(problem[-1].objectives)):
+                results[algorithm.name][gtechnique.__name__][str(objective)]={}
+                results[algorithm.name][gtechnique.__name__][str(objective)]["median"] = []
+                results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"] = []
+    for algorithm in algorithms:
+        fignum = len([name for name in os.listdir('./Results/Tables/' + date_folder_prefix)]) + 1
+        filename = './Results/Tables/' + date_folder_prefix+ '/table' + str( "%02d" % fignum) + "_" + problem[-1].name + "_" + algorithm.name + ".csv"
+        for gtechnique in gtechniques:
+            points = get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations)
+            for objective in xrange(len(problem[-1].objectives)):
+                temp_list = [p[objective] for p in points]
+                from numpy import median
+                results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(temp_list))
+                results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"].append(0)
+
+            for generation in xrange(generations):
+                print ".",
+                temp_point_list = []
+                files = find_files_for_generations(problem[-1].name, algorithm.name, gtechnique.__name__, number_of_repeats, generation+1)
+
+                for file in files:
+                    temp_value = get_content(problem[-1], file, pop_size)
+                    temp_point_list.append(temp_value)
+
+                for objective in xrange(len(problem[-1].objectives)):
+                    from numpy import median
+                    from numpy import percentile
+                    point_list = [p[objective] for p in temp_point_list]
+                    results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(point_list))
+                    iqr = percentile(point_list, 75) - percentile(point_list, 25)
+                    results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"].append(iqr)
+
+
+        table = []
+        table.append(["Generation", "s_o1_median", "s_o1_iqr", "s_o2_median", "s_o2_iqr", "s_o3_median", "s_o3_iqr", "sw_o1_median", "sw_o1_iqr", "sw_o2_median", "sw_o2_iqr", "sw_o3_median", "sw_o3_iqr"])
+
+        for generation in xrange(generations+1):
+            line = [generation]
+            for gtechnique in gtechniques:
+                for objective in xrange(len(problem[-1].objectives)):
+                    line.append(round(results[algorithm.name][gtechnique.__name__][str(objective)]["median"][generation], 3))
+                    line.append(round(results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"][generation], 3))
+            table.append(line)
+
+
+        import csv
+        with open(filename, "wb") as f:
+            writer = csv.writer(f)
+            writer.writerows(table)

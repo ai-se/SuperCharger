@@ -61,7 +61,8 @@ problems =[
     # dtlz1(9, 5)
     POM3A(),
     POM3B(),
-     POM3C(), POM3D(),
+    POM3C(),
+    POM3D(),
     XOMO_ground(),
     XOMO_flight(),
     XOMO_all(),
