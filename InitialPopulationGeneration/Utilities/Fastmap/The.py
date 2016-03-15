@@ -38,5 +38,5 @@ class The():
   num     = "$"     # numerics
   ignore  = "~"     # column to ignore
   
-def rstop(t): return  (len(t.rows)**0.5)
+def rstop(t): return  2*(len(t.rows)**0.5)
 def stop(default): return default #return False

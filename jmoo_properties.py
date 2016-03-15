@@ -34,7 +34,7 @@ from jmoo_problems import *
 # from Problems.CPM.cpm_reduction import *
 from Problems.NRP.nrp import *
 # from Problems.MONRP.monrp import *
-from InitialPopulationGeneration.pop_generators import standard_random, sway, wierd
+from InitialPopulationGeneration.pop_generators import standard_random, sway, wierd, sway2
 from Problems.POM3.POM3B import POM3B
 from Problems.POM3.POM3A import POM3A
 from Problems.POM3.POM3C import POM3C
@@ -59,7 +59,7 @@ algorithms = [
 
 problems =[
     # dtlz1(9, 5)
-    # POM3A(),
+    POM3A(),
     POM3B(),
     POM3C(),
     POM3D(),
@@ -73,7 +73,7 @@ problems =[
 
 ]
 
-GTechniques = [standard_random, sway]  #, wierd
+GTechniques = [sway2]#standard_random, sway]  #, wierd
 
 build_new_pop = False                                       # Whether or not to rebuild the initial population
 

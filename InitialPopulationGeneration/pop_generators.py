@@ -22,6 +22,24 @@ def sway(problem, n):
     return dataset
 
 
+def sway2(problem, n):
+
+    dataset_size = 100 * n  # 100 times the population
+
+    # center size population
+    dataset = standard_random(problem, dataset_size, center=True)
+
+    # Spectral Reduction
+    dataset = spectral_cleanup(problem, dataset)
+
+    from random import shuffle
+    shuffle(dataset)
+    dataset = dataset[:n]
+
+    assert(len(dataset) == n), "Something is wrong!"
+    return dataset
+
+
 def wierd(problem, n):
     dataset = []
     for run in range(n): dataset.append(problem.generateWierd())

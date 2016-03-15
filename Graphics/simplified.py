@@ -78,6 +78,8 @@ def get_actual_frontier(problem, algorithms, gtechniques, Configurations, tag):
     from jmoo_algorithms import get_non_dominated_solutions
     actual_frontier = [sol.fitness.fitness for sol in
                        get_non_dominated_solutions(problem[-1], population, Configurations)]
+    import pdb
+    pdb.set_trace()
     return actual_frontier
 
 
@@ -491,15 +493,17 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
         fignum = len([name for name in os.listdir('./Results/Tables/' + date_folder_prefix)]) + 1
         filename = './Results/Tables/' + date_folder_prefix+ '/table' + str( "%02d" % fignum) + "_" + problem[-1].name + "_" + algorithm.name + ".csv"
         for gtechnique in gtechniques:
-            points = get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations)
-            from PerformanceMetrics.IGD.IGD_Calculation import IGD
-            results[algorithm.name][gtechnique.__name__]["IGD"]["median"].append(IGD(actual_frontier, points))
-            results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"].append(0)
-            for objective in xrange(len(problem[-1].objectives)):
-                temp_list = [p[objective] for p in points]
-                from numpy import median
-                results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(temp_list))
-                results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"].append(0)
+
+            # since the initial dataset doesn't have evaluated points
+            # points = get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations)
+            # from PerformanceMetrics.IGD.IGD_Calculation import IGD
+            # results[algorithm.name][gtechnique.__name__]["IGD"]["median"].append(IGD(actual_frontier, points))
+            # results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"].append(0)
+            # for objective in xrange(len(problem[-1].objectives)):
+            #     temp_list = [p[objective] for p in points]
+            #     from numpy import median
+            #     results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(temp_list))
+            #     results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"].append(0)
 
             for generation in xrange(generations):
                 print ".",
