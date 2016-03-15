@@ -52,8 +52,9 @@ from Problems.MONRP.monrp import MONRP
 
 # JMOO Experimental Definitions
 algorithms = [
-            jmoo_NSGAIII(),
-            jmoo_MOEAD_PBI()
+            # jmoo_NSGAIII(),
+            # jmoo_MOEAD_PBI()
+            jmoo_NSGAII(), jmoo_SPEA2()
               ]
 
 
