@@ -73,7 +73,7 @@ problems =[
 
 ]
 
-GTechniques = [sway2]#standard_random, sway]  #, wierd
+GTechniques = [standard_random, sway2]  #, wierd
 
 build_new_pop = False                                       # Whether or not to rebuild the initial population
 
