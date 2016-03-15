@@ -35,7 +35,8 @@ def get_content(problem, file, population_size, initial_line=False):
             objectives.append([float(c) for count,c in enumerate(content.split(","))][-1 * number_of_objectives:])
     else:
         for content in contents[1:population_size+1]:
-            objectives.append([float(c) for c in content.split(",")][-1 * number_of_objectives:])
+            decisions =map(float, content.strip().split(","))
+            objectives.append(problem.evaluate(decisions))
 
     return objectives
 
@@ -78,8 +79,6 @@ def get_actual_frontier(problem, algorithms, gtechniques, Configurations, tag):
     from jmoo_algorithms import get_non_dominated_solutions
     actual_frontier = [sol.fitness.fitness for sol in
                        get_non_dominated_solutions(problem[-1], population, Configurations)]
-    import pdb
-    pdb.set_trace()
     return actual_frontier
 
 
@@ -495,15 +494,15 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
         for gtechnique in gtechniques:
 
             # since the initial dataset doesn't have evaluated points
-            # points = get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations)
-            # from PerformanceMetrics.IGD.IGD_Calculation import IGD
-            # results[algorithm.name][gtechnique.__name__]["IGD"]["median"].append(IGD(actual_frontier, points))
-            # results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"].append(0)
-            # for objective in xrange(len(problem[-1].objectives)):
-            #     temp_list = [p[objective] for p in points]
-            #     from numpy import median
-            #     results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(temp_list))
-            #     results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"].append(0)
+            points = get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations)
+            from PerformanceMetrics.IGD.IGD_Calculation import IGD
+            results[algorithm.name][gtechnique.__name__]["IGD"]["median"].append(IGD(actual_frontier, points))
+            results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"].append(0)
+            for objective in xrange(len(problem[-1].objectives)):
+                temp_list = [p[objective] for p in points]
+                from numpy import median
+                results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(temp_list))
+                results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"].append(0)
 
             for generation in xrange(generations):
                 print ".",
@@ -550,14 +549,24 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
         table = []
         table.append(["Generation", "s_o1_median", "s_o1_iqr", "s_o2_median", "s_o2_iqr", "s_o3_median", "s_o3_iqr", "s_igd_median", "s_igd_iqr", "sw_o1_median", "sw_o1_iqr", "sw_o2_median", "sw_o2_iqr", "sw_o3_median", "sw_o3_iqr", "sw_igd_median", "sw_igd_iqr",])
 
+        # Normalizing
+        normalize = [[1e10, -1e10] for _ in xrange(len(problem[-1].objectives)+1)]
+        for gtechnique in gtechniques:
+            for objective in xrange(len(problem[-1].objectives)):
+                normalize[objective][0] = min(normalize[objective][0], min(results[algorithm.name][gtechnique.__name__][str(objective)]["median"]))
+                normalize[objective][1] = max(normalize[objective][1], max(results[algorithm.name][gtechnique.__name__][str(objective)]["median"]))
+            normalize[-1][0] = min(normalize[-1][0], min(results[algorithm.name][gtechnique.__name__]["IGD"]["median"]))
+            normalize[-1][1] = max(normalize[-1][1], max(results[algorithm.name][gtechnique.__name__]["IGD"]["median"]))
+
+
         for generation in xrange(generations+1):
             line = [generation]
             for gtechnique in gtechniques:
                 for objective in xrange(len(problem[-1].objectives)):
-                    line.append(round(results[algorithm.name][gtechnique.__name__][str(objective)]["median"][generation], 3))
-                    line.append(round(results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"][generation], 3))
-                line.append(round(results[algorithm.name][gtechnique.__name__]["IGD"]["median"][generation], 3))
-                line.append(round(results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"][generation], 3))
+                    line.append(round((results[algorithm.name][gtechnique.__name__][str(objective)]["median"][generation] - normalize[objective][0])/(normalize[objective][1] - normalize[objective][0]), 3))
+                    line.append(round(results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"][generation] * 100/(normalize[objective][1] - normalize[objective][0]), 3))
+                line.append(round((results[algorithm.name][gtechnique.__name__]["IGD"]["median"][generation] - normalize[-1][0])/(normalize[-1][1] - normalize[-1][0]), 5))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"][generation] * 100/(normalize[-1][1] - normalize[-1][0]), 5))
             table.append(line)
 
 
@@ -565,3 +574,7 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
         with open(filename, "wb") as f:
             writer = csv.writer(f)
             writer.writerows(table)
+        print "done"
+
+#[[55.033310626350001, 641.88305216731021], [0.0051921442817449998, 0.40080336686790546], [0.123161764706, 0.2807315233785822], [0.043572258802054627, 793.7092583855871]]
+
