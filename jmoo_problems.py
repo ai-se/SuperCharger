@@ -766,6 +766,7 @@ class dtlz2(jmoo_problem):
         ups =   [1.0 for i in range(numDecs)]
         prob.decisions = [jmoo_decision(names[i], lows[i], ups[i]) for i in range(numDecs)]
         prob.objectives = [jmoo_objective("f" + str(i+1), True) for i in range(numObjs)]
+
     def evaluate(prob,input = None):
         if input:
             for i,decision in enumerate(prob.decisions):
