@@ -122,11 +122,11 @@ class jmoo_chart_report:
     def doit(self, tagnote=""):
         igd_list = []
         for problem in self.tests.problems:
-            # build_table_for_epsilon([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="epsilon")
-            print "HyperVolume"
-            draw_hv([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="HV")
-            print "Spread"
-            draw_spread([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="SPR")
+            build_table_for_epsilon([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="epsilon")
+            # print "HyperVolume"
+            # draw_hv([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="HV")
+            # print "Spread"
+            # draw_spread([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="SPR")
             # print "IGD"
             # draw_igd([problem], self.tests.algorithms, self.tests.gtechniques, self.Configurations, tag="IGD")
 

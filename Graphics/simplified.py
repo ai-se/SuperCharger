@@ -33,12 +33,12 @@ def get_content(problem, file, population_size, initial_line=False):
     if initial_line is False:
         for content in contents[:population_size]:
             objectives.append([float(c) for count,c in enumerate(content.split(","))][-1 * number_of_objectives:])
+        return objectives
     else:
         for content in contents[1:population_size+1]:
-            decisions =map(float, content.strip().split(","))
-            objectives.append(problem.evaluate(decisions))
-
-    return objectives
+            decisions = map(float, content.strip().split(","))
+            objectives.append(decisions + problem.evaluate(decisions))
+        return objectives
 
 
 def get_content_all(problem, file, population_size, initial_line=True):
@@ -53,6 +53,7 @@ def get_content_all(problem, file, population_size, initial_line=True):
             temp = [float(c) for c in content.split(",")]
             objectives.append(temp)
     return objectives
+
 
 def remove_duplicates(objectives):
     # remove duplicates
@@ -74,7 +75,7 @@ def get_actual_frontier(problem, algorithms, gtechniques, Configurations, tag):
 
     # change into jmoo_individual
     from jmoo_individual import jmoo_individual
-    population = [jmoo_individual(problem[-1], i[number_of_objectives:], i[:number_of_objectives]) for i in content]
+    population = [jmoo_individual(problem[-1], i[:-1*number_of_objectives:], i[-1*number_of_objectives:]) for i in content]
 
     from jmoo_algorithms import get_non_dominated_solutions
     actual_frontier = [sol.fitness.fitness for sol in
@@ -103,7 +104,12 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
         Configurations["Universal"]["Population_Size"]) + "-d" + str(len(problem.decisions)) + "-o" + str(
         len(problem.objectives)) + "-g" + gtechnique.__name__ + "-dataset.txt"
     content = get_content(problem, filename, pop_size, initial_line=True)
-    return content
+    from jmoo_individual import jmoo_individual
+    population = [jmoo_individual(problem, i[:-1*number_of_objectives:], i[-1*number_of_objectives:]) for i in content]
+    from jmoo_algorithms import get_non_dominated_solutions
+    temp_value = [sol.fitness.fitness for sol in
+                   get_non_dominated_solutions(problem, population, Configurations)]
+    return temp_value
 
 
     # content = get_content_all(problem, filename, pop_size)
@@ -168,7 +174,7 @@ def draw_igd(problem, algorithms, gtechniques, Configurations, tag):
                     temp_value = get_content_all(problem[-1], file, pop_size, initial_line=False)
                     # change into jmoo_individual
                     from jmoo_individual import jmoo_individual
-                    population = [jmoo_individual(problem[-1], i[number_of_objectives:], i[:number_of_objectives]) for i in temp_value]
+                    population = [jmoo_individual(problem[-1], i[:-1*number_of_objectives], i[-1*number_of_objectives:]) for i in temp_value]
 
                     from jmoo_algorithms import get_non_dominated_solutions
                     temp_value = [sol.fitness.fitness for sol in
@@ -474,6 +480,8 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
     number_of_objectives = len(problem[-1].objectives)
     actual_frontier = get_actual_frontier(problem, algorithms, gtechniques, Configurations, tag)
 
+    extreme_point1, extreme_point2 = find_extreme_points(problem[-1], actual_frontier)
+
     f, axarr = plt.subplots(1)
 
     for algorithm in algorithms:
@@ -484,11 +492,27 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
             results[algorithm.name][gtechnique.__name__]["IGD"]["median"] = []
             results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"] = []
 
+            results[algorithm.name][gtechnique.__name__]["HV"] = {}
+            results[algorithm.name][gtechnique.__name__]["HV"]["median"] = []
+            results[algorithm.name][gtechnique.__name__]["HV"]["iqr"] = []
+
+            results[algorithm.name][gtechnique.__name__]["Spread"] = {}
+            results[algorithm.name][gtechnique.__name__]["Spread"]["median"] = []
+            results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"] = []
+
             for objective in xrange(len(problem[-1].objectives)):
                 results[algorithm.name][gtechnique.__name__][str(objective)]={}
                 results[algorithm.name][gtechnique.__name__][str(objective)]["median"] = []
                 results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"] = []
+
     for algorithm in algorithms:
+        ref_point_list = []
+        for gtechnique in gtechniques:ref_point_list.extend(get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations))
+
+        # this would only be used on wrt to the algorithms
+        reference_point = [max([r[o] for r in ref_point_list]) * 5 for o in xrange(number_of_objectives)]
+        print reference_point
+
         fignum = len([name for name in os.listdir('./Results/Tables/' + date_folder_prefix)]) + 1
         filename = './Results/Tables/' + date_folder_prefix+ '/table' + str( "%02d" % fignum) + "_" + problem[-1].name + "_" + algorithm.name + ".csv"
         for gtechnique in gtechniques:
@@ -498,6 +522,16 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
             from PerformanceMetrics.IGD.IGD_Calculation import IGD
             results[algorithm.name][gtechnique.__name__]["IGD"]["median"].append(IGD(actual_frontier, points))
             results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"].append(0)
+
+            from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
+            results[algorithm.name][gtechnique.__name__]["HV"]["median"].append(get_hyper_volume(reference_point, points))
+            results[algorithm.name][gtechnique.__name__]["HV"]["iqr"].append(0)
+
+            from PerformanceMetrics.Spread.Spread import spread_calculator
+            results[algorithm.name][gtechnique.__name__]["Spread"]["median"].append(spread_calculator(points, extreme_point1,extreme_point2))
+            results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"].append(0)
+
+
             for objective in xrange(len(problem[-1].objectives)):
                 temp_list = [p[objective] for p in points]
                 from numpy import median
@@ -513,6 +547,8 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
 
                 temp_median = [[] for _ in xrange(number_of_objectives)]
                 temp_igd = []
+                temp_hv = []
+                temp_spread = []
                 for file in files:
                     temp_value = get_content(problem[-1], file, pop_size)
                     # temp_point_list.append(temp_value)
@@ -524,16 +560,21 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
                         temp_median[objective].append(median(point_list))
 
 
-                    # IGD values
+
                     temp_value = get_content_all(problem[-1], file, pop_size, initial_line=False)
                     # change into jmoo_individual
                     from jmoo_individual import jmoo_individual
-                    population = [jmoo_individual(problem[-1], i[number_of_objectives:], i[:number_of_objectives]) for i in temp_value]
+                    population = [jmoo_individual(problem[-1], i[:-1*number_of_objectives:], i[-1*number_of_objectives:]) for i in temp_value]
 
                     from jmoo_algorithms import get_non_dominated_solutions
                     temp_value = [sol.fitness.fitness for sol in
                                    get_non_dominated_solutions(problem[-1], population, Configurations)]
+
+                    # IGD values
                     temp_igd.append(IGD(actual_frontier, temp_value))
+                    temp_hv.append(get_hyper_volume(reference_point, temp_value))
+                    temp_spread.append(spread_calculator(temp_value, extreme_point1,extreme_point2))
+
 
                 for objective in xrange(number_of_objectives):
                     results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(temp_median[objective]))
@@ -544,20 +585,32 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
                 iqr = percentile(temp_igd, 75) - percentile(temp_igd, 25)
                 results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"].append(iqr)
 
+                results[algorithm.name][gtechnique.__name__]["HV"]["median"].append(median(temp_hv))
+                iqr = percentile(temp_hv, 75) - percentile(temp_hv, 25)
+                results[algorithm.name][gtechnique.__name__]["HV"]["iqr"].append(iqr)
+
+                results[algorithm.name][gtechnique.__name__]["Spread"]["median"].append(median(temp_spread))
+                iqr = percentile(temp_spread, 75) - percentile(temp_spread, 25)
+                results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"].append(iqr)
+
 
 
         table = []
-        table.append(["Generation", "s_o1_median", "s_o1_iqr", "s_o2_median", "s_o2_iqr", "s_o3_median", "s_o3_iqr", "s_igd_median", "s_igd_iqr", "sw_o1_median", "sw_o1_iqr", "sw_o2_median", "sw_o2_iqr", "sw_o3_median", "sw_o3_iqr", "sw_igd_median", "sw_igd_iqr",])
+        table.append(["Generation", "s_o1_median", "s_o1_iqr", "s_o2_median", "s_o2_iqr", "s_o3_median", "s_o3_iqr", "s_igd_median", "s_igd_iqr", "s_hv_median", "s_hv_iqr", "s_spread_median", "s_spread_iqr", "sw_o1_median", "sw_o1_iqr", "sw_o2_median", "sw_o2_iqr", "sw_o3_median", "sw_o3_iqr", "sw_igd_median", "sw_igd_iqr", "sw_hv_median", "sw_hv_iqr", "sw_spread_median", "sw_spread_iqr"])
 
         # Normalizing
-        normalize = [[1e10, -1e10] for _ in xrange(len(problem[-1].objectives)+1)]
+        normalize = [[1e10, -1e10] for _ in xrange(len(problem[-1].objectives)+3)]
         for gtechnique in gtechniques:
             for objective in xrange(len(problem[-1].objectives)):
                 normalize[objective][0] = min(normalize[objective][0], min(results[algorithm.name][gtechnique.__name__][str(objective)]["median"]))
                 normalize[objective][1] = max(normalize[objective][1], max(results[algorithm.name][gtechnique.__name__][str(objective)]["median"]))
-            normalize[-1][0] = min(normalize[-1][0], min(results[algorithm.name][gtechnique.__name__]["IGD"]["median"]))
-            normalize[-1][1] = max(normalize[-1][1], max(results[algorithm.name][gtechnique.__name__]["IGD"]["median"]))
-
+            normalize[-3][0] = min(normalize[-3][0], min(results[algorithm.name][gtechnique.__name__]["IGD"]["median"]))
+            normalize[-3][1] = max(normalize[-3][1], max(results[algorithm.name][gtechnique.__name__]["IGD"]["median"]))
+            normalize[-2][0] = min(normalize[-2][0], min(results[algorithm.name][gtechnique.__name__]["HV"]["median"]))
+            normalize[-2][1] = max(normalize[-2][1], max(results[algorithm.name][gtechnique.__name__]["HV"]["median"]))
+            normalize[-1][0] = min(normalize[-1][0], min(results[algorithm.name][gtechnique.__name__]["Spread"]["median"]))
+            normalize[-1][1] = max(normalize[-1][1], max(results[algorithm.name][gtechnique.__name__]["Spread"]["median"]))
+        print normalize[-2][0], normalize[-2][1]
 
         for generation in xrange(generations+1):
             line = [generation]
@@ -565,8 +618,12 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
                 for objective in xrange(len(problem[-1].objectives)):
                     line.append(round((results[algorithm.name][gtechnique.__name__][str(objective)]["median"][generation] - normalize[objective][0])/(normalize[objective][1] - normalize[objective][0]), 3))
                     line.append(round(results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"][generation] * 100/(normalize[objective][1] - normalize[objective][0]), 3))
-                line.append(round((results[algorithm.name][gtechnique.__name__]["IGD"]["median"][generation] - normalize[-1][0])/(normalize[-1][1] - normalize[-1][0]), 5))
-                line.append(round(results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"][generation] * 100/(normalize[-1][1] - normalize[-1][0]), 5))
+                line.append(round((results[algorithm.name][gtechnique.__name__]["IGD"]["median"][generation] - normalize[-3][0])/(normalize[-3][1] - normalize[-3][0]), 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"][generation] * 100/(normalize[-3][1] - normalize[-3][0]), 8))
+                line.append(round((results[algorithm.name][gtechnique.__name__]["HV"]["median"][generation] - normalize[-2][0])/(normalize[-2][1] - normalize[-2][0]), 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["HV"]["iqr"][generation] * 100/(normalize[-2][1] - normalize[-2][0]), 8))
+                line.append(round((results[algorithm.name][gtechnique.__name__]["Spread"]["median"][generation] - normalize[-3][0])/(normalize[-3][1] - normalize[-3][0]), 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"][generation] * 100/(normalize[-3][1] - normalize[-3][0]), 8))
             table.append(line)
 
 
@@ -576,5 +633,172 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
             writer.writerows(table)
         print "done"
 
-#[[55.033310626350001, 641.88305216731021], [0.0051921442817449998, 0.40080336686790546], [0.123161764706, 0.2807315233785822], [0.043572258802054627, 793.7092583855871]]
 
+def scottknott(problem, algorithms, gtechniques, Configurations, tag):
+    import os
+    from time import strftime
+    date_folder_prefix = strftime("%m-%d-%Y")
+    if not os.path.isdir('./Results/Tables/' + date_folder_prefix):
+        os.makedirs('./Results/Tables/' + date_folder_prefix)
+
+    results = {}
+    number_of_repeats = Configurations["Universal"]["Repeats"]
+    generations = Configurations["Universal"]["No_of_Generations"]
+    pop_size = Configurations["Universal"]["Population_Size"]
+    evaluations = [pop_size*i for i in xrange(generations+1)]
+
+    number_of_objectives = len(problem[-1].objectives)
+    actual_frontier = get_actual_frontier(problem, algorithms, gtechniques, Configurations, tag)
+
+    extreme_point1, extreme_point2 = find_extreme_points(problem[-1], actual_frontier)
+
+    f, axarr = plt.subplots(1)
+
+    for algorithm in algorithms:
+        results[algorithm.name] = {}
+        for gtechnique in gtechniques:
+            results[algorithm.name][gtechnique.__name__] = {}
+            results[algorithm.name][gtechnique.__name__]["IGD"] = {}
+            results[algorithm.name][gtechnique.__name__]["IGD"]["median"] = []
+            results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"] = []
+
+            results[algorithm.name][gtechnique.__name__]["HV"] = {}
+            results[algorithm.name][gtechnique.__name__]["HV"]["median"] = []
+            results[algorithm.name][gtechnique.__name__]["HV"]["iqr"] = []
+
+            results[algorithm.name][gtechnique.__name__]["Spread"] = {}
+            results[algorithm.name][gtechnique.__name__]["Spread"]["median"] = []
+            results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"] = []
+
+            for objective in xrange(len(problem[-1].objectives)):
+                results[algorithm.name][gtechnique.__name__][str(objective)]={}
+                results[algorithm.name][gtechnique.__name__][str(objective)]["median"] = []
+                results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"] = []
+
+    for algorithm in algorithms:
+        ref_point_list = []
+        for gtechnique in gtechniques:ref_point_list.extend(get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations))
+
+        # this would only be used on wrt to the algorithms
+        reference_point = [max([r[o] for r in ref_point_list]) * 5 for o in xrange(number_of_objectives)]
+        print reference_point
+
+        fignum = len([name for name in os.listdir('./Results/Tables/' + date_folder_prefix)]) + 1
+        filename = './Results/Tables/' + date_folder_prefix+ '/table' + str( "%02d" % fignum) + "_" + problem[-1].name + "_" + algorithm.name + ".csv"
+        for gtechnique in gtechniques:
+
+            # since the initial dataset doesn't have evaluated points
+            points = get_initial_datapoints(problem[-1], algorithm, gtechnique, Configurations)
+            from PerformanceMetrics.IGD.IGD_Calculation import IGD
+            results[algorithm.name][gtechnique.__name__]["IGD"]["median"].append(IGD(actual_frontier, points))
+            results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"].append(0)
+
+            from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
+            results[algorithm.name][gtechnique.__name__]["HV"]["median"].append(get_hyper_volume(reference_point, points))
+            results[algorithm.name][gtechnique.__name__]["HV"]["iqr"].append(0)
+
+            from PerformanceMetrics.Spread.Spread import spread_calculator
+            results[algorithm.name][gtechnique.__name__]["Spread"]["median"].append(spread_calculator(points, extreme_point1,extreme_point2))
+            results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"].append(0)
+
+
+            for objective in xrange(len(problem[-1].objectives)):
+                temp_list = [p[objective] for p in points]
+                from numpy import median
+                results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(temp_list))
+                results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"].append(0)
+
+            for generation in xrange(generations):
+                print ".",
+                import sys
+                sys.stdout.flush()
+
+                files = find_files_for_generations(problem[-1].name, algorithm.name, gtechnique.__name__, number_of_repeats, generation+1)
+
+                temp_median = [[] for _ in xrange(number_of_objectives)]
+                temp_igd = []
+                temp_hv = []
+                temp_spread = []
+                for file in files:
+                    temp_value = get_content(problem[-1], file, pop_size)
+                    # temp_point_list.append(temp_value)
+
+                    for objective in xrange(len(problem[-1].objectives)):
+                        from numpy import median
+                        from numpy import percentile
+                        point_list = [p[objective] for p in temp_value]
+                        temp_median[objective].append(median(point_list))
+
+
+
+                    temp_value = get_content_all(problem[-1], file, pop_size, initial_line=False)
+                    # change into jmoo_individual
+                    from jmoo_individual import jmoo_individual
+                    population = [jmoo_individual(problem[-1], i[:-1*number_of_objectives:], i[-1*number_of_objectives:]) for i in temp_value]
+
+                    from jmoo_algorithms import get_non_dominated_solutions
+                    temp_value = [sol.fitness.fitness for sol in
+                                   get_non_dominated_solutions(problem[-1], population, Configurations)]
+
+                    # IGD values
+                    temp_igd.append(IGD(actual_frontier, temp_value))
+                    temp_hv.append(get_hyper_volume(reference_point, temp_value))
+                    temp_spread.append(spread_calculator(temp_value, extreme_point1,extreme_point2))
+
+
+                for objective in xrange(number_of_objectives):
+                    results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(temp_median[objective]))
+                    iqr = percentile(temp_median[objective], 75) - percentile(temp_median[objective], 25)
+                    results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"].append(iqr)
+
+                results[algorithm.name][gtechnique.__name__]["IGD"]["median"].append(median(temp_igd))
+                iqr = percentile(temp_igd, 75) - percentile(temp_igd, 25)
+                results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"].append(iqr)
+
+                results[algorithm.name][gtechnique.__name__]["HV"]["median"].append(median(temp_hv))
+                iqr = percentile(temp_hv, 75) - percentile(temp_hv, 25)
+                results[algorithm.name][gtechnique.__name__]["HV"]["iqr"].append(iqr)
+
+                results[algorithm.name][gtechnique.__name__]["Spread"]["median"].append(median(temp_spread))
+                iqr = percentile(temp_spread, 75) - percentile(temp_spread, 25)
+                results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"].append(iqr)
+
+
+
+        table = []
+        table.append(["Generation", "s_o1_median", "s_o1_iqr", "s_o2_median", "s_o2_iqr", "s_o3_median", "s_o3_iqr", "s_igd_median", "s_igd_iqr", "s_hv_median", "s_hv_iqr", "s_spread_median", "s_spread_iqr", "sw_o1_median", "sw_o1_iqr", "sw_o2_median", "sw_o2_iqr", "sw_o3_median", "sw_o3_iqr", "sw_igd_median", "sw_igd_iqr", "sw_hv_median", "sw_hv_iqr", "sw_spread_median", "sw_spread_iqr"])
+
+        # Normalizing
+        normalize = [[1e10, -1e10] for _ in xrange(len(problem[-1].objectives)+3)]
+        for gtechnique in gtechniques:
+            for objective in xrange(len(problem[-1].objectives)):
+                normalize[objective][0] = min(normalize[objective][0], min(results[algorithm.name][gtechnique.__name__][str(objective)]["median"]))
+                normalize[objective][1] = max(normalize[objective][1], max(results[algorithm.name][gtechnique.__name__][str(objective)]["median"]))
+            normalize[-3][0] = min(normalize[-3][0], min(results[algorithm.name][gtechnique.__name__]["IGD"]["median"]))
+            normalize[-3][1] = max(normalize[-3][1], max(results[algorithm.name][gtechnique.__name__]["IGD"]["median"]))
+            normalize[-2][0] = min(normalize[-2][0], min(results[algorithm.name][gtechnique.__name__]["HV"]["median"]))
+            normalize[-2][1] = max(normalize[-2][1], max(results[algorithm.name][gtechnique.__name__]["HV"]["median"]))
+            normalize[-1][0] = min(normalize[-1][0], min(results[algorithm.name][gtechnique.__name__]["Spread"]["median"]))
+            normalize[-1][1] = max(normalize[-1][1], max(results[algorithm.name][gtechnique.__name__]["Spread"]["median"]))
+        print normalize[-2][0], normalize[-2][1]
+
+        for generation in xrange(generations+1):
+            line = [generation]
+            for gtechnique in gtechniques:
+                for objective in xrange(len(problem[-1].objectives)):
+                    line.append(round((results[algorithm.name][gtechnique.__name__][str(objective)]["median"][generation] - normalize[objective][0])/(normalize[objective][1] - normalize[objective][0]), 3))
+                    line.append(round(results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"][generation] * 100/(normalize[objective][1] - normalize[objective][0]), 3))
+                line.append(round((results[algorithm.name][gtechnique.__name__]["IGD"]["median"][generation] - normalize[-3][0])/(normalize[-3][1] - normalize[-3][0]), 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"][generation] * 100/(normalize[-3][1] - normalize[-3][0]), 8))
+                line.append(round((results[algorithm.name][gtechnique.__name__]["HV"]["median"][generation] - normalize[-2][0])/(normalize[-2][1] - normalize[-2][0]), 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["HV"]["iqr"][generation] * 100/(normalize[-2][1] - normalize[-2][0]), 8))
+                line.append(round((results[algorithm.name][gtechnique.__name__]["Spread"]["median"][generation] - normalize[-3][0])/(normalize[-3][1] - normalize[-3][0]), 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"][generation] * 100/(normalize[-3][1] - normalize[-3][0]), 8))
+            table.append(line)
+
+
+        import csv
+        with open(filename, "wb") as f:
+            writer = csv.writer(f)
+            writer.writerows(table)
+        print "done"

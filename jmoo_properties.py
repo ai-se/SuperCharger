@@ -75,14 +75,14 @@ problems =[
     # dtlz4(17, 8),
 
     POM3A(),
-    POM3B(),
-    POM3C(),
-    POM3D(),
-    XOMO_ground(),
-    XOMO_flight(),
-    XOMO_all(),
-    XOMO_osp2(),
-    XOMO_osp(),
+    # POM3B(),
+    # POM3C(),
+    # POM3D(),
+    # XOMO_ground(),
+    # XOMO_flight(),
+    # XOMO_all(),
+    # XOMO_osp2(),
+    # XOMO_osp(),
     # NRP(50, 5, 5, 0, 80),
     # MONRP(50, 5, 5, 0, 80)
 
