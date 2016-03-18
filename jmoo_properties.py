@@ -53,28 +53,29 @@ from Problems.MONRP.monrp import MONRP
 # JMOO Experimental Definitions
 algorithms = [
             # jmoo_NSGAIII(),
-            # jmoo_MOEAD_PBI()
-            jmoo_NSGAII(), jmoo_SPEA2()
+            # jmoo_MOEAD_PBI(),
+            jmoo_NSGAII(),
+            jmoo_SPEA2()
               ]
 
 
 problems =[
-    # dtlz1(7, 3),
-    # dtlz2(12, 3),
-    # dtlz3(12, 3),
-    # dtlz4(12, 3),
-    #
-    # dtlz1(9, 5),
-    # dtlz2(14, 5),
-    # dtlz3(14, 5),
-    # dtlz4(14, 5),
-    #
-    # dtlz1(12, 8),
-    # dtlz2(17, 8),
-    # dtlz3(17, 8),
-    # dtlz4(17, 8),
+    dtlz1(7, 3),
+    dtlz2(12, 3),
+    dtlz3(12, 3),
+    dtlz4(12, 3),
 
-    POM3A(),
+    dtlz1(9, 5),
+    dtlz2(14, 5),
+    dtlz3(14, 5),
+    dtlz4(14, 5),
+
+    dtlz1(12, 8),
+    dtlz2(17, 8),
+    dtlz3(17, 8),
+    dtlz4(17, 8),
+
+    # POM3A(),
     # POM3B(),
     # POM3C(),
     # POM3D(),

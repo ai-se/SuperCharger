@@ -41,6 +41,21 @@ def get_content(problem, file, population_size, initial_line=False):
         return objectives
 
 
+def get_content_for_table(problem, file, population_size, initial_line=False):
+    number_of_objectives = len(problem.objectives)
+    objectives = []
+    contents = open(file, "r").readlines()
+    if initial_line is False:
+        for content in contents[:population_size]:
+            objectives.append([float(c) for count,c in enumerate(content.split(","))])
+        return objectives
+    else:
+        for content in contents[1:population_size+1]:
+            decisions = map(float, content.strip().split(","))
+            objectives.append(decisions + problem.evaluate(decisions))
+        return objectives
+
+
 def get_content_all(problem, file, population_size, initial_line=True):
     objectives = []
     contents = open(file, "r").readlines()
@@ -515,6 +530,7 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
 
         fignum = len([name for name in os.listdir('./Results/Tables/' + date_folder_prefix)]) + 1
         filename = './Results/Tables/' + date_folder_prefix+ '/table' + str( "%02d" % fignum) + "_" + problem[-1].name + "_" + algorithm.name + ".csv"
+        raw_filename = './Results/Tables/' + date_folder_prefix+ '/raw_table_' + str( "%02d" % fignum) + "_" + problem[-1].name + "_" + algorithm.name + ".csv"
         for gtechnique in gtechniques:
 
             # since the initial dataset doesn't have evaluated points
@@ -549,32 +565,28 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
                 temp_igd = []
                 temp_hv = []
                 temp_spread = []
+                # change into jmoo_individual
+                from jmoo_individual import jmoo_individual
                 for file in files:
-                    temp_value = get_content(problem[-1], file, pop_size)
-                    # temp_point_list.append(temp_value)
+                    temp_values = get_content_for_table(problem[-1], file, pop_size)
+                    population = []
+                    for temp_value in temp_values:
+                        population.append(jmoo_individual(problem[-1], temp_value[:len(problem[-1].decisions)], temp_value[len(problem[-1].decisions):]))
+
+                    from jmoo_algorithms import get_non_dominated_solutions
+                    population_fitness = [sol.fitness.fitness for sol in
+                                   get_non_dominated_solutions(problem[-1], population, Configurations)]
 
                     for objective in xrange(len(problem[-1].objectives)):
                         from numpy import median
                         from numpy import percentile
-                        point_list = [p[objective] for p in temp_value]
+                        point_list = [p[objective] for p in population_fitness]
                         temp_median[objective].append(median(point_list))
 
-
-
-                    temp_value = get_content_all(problem[-1], file, pop_size, initial_line=False)
-                    # change into jmoo_individual
-                    from jmoo_individual import jmoo_individual
-                    population = [jmoo_individual(problem[-1], i[:-1*number_of_objectives:], i[-1*number_of_objectives:]) for i in temp_value]
-
-                    from jmoo_algorithms import get_non_dominated_solutions
-                    temp_value = [sol.fitness.fitness for sol in
-                                   get_non_dominated_solutions(problem[-1], population, Configurations)]
-
                     # IGD values
-                    temp_igd.append(IGD(actual_frontier, temp_value))
-                    temp_hv.append(get_hyper_volume(reference_point, temp_value))
-                    temp_spread.append(spread_calculator(temp_value, extreme_point1,extreme_point2))
-
+                    temp_igd.append(IGD(actual_frontier, population_fitness))
+                    temp_hv.append(get_hyper_volume(reference_point, population_fitness))
+                    temp_spread.append(spread_calculator(population_fitness, extreme_point1,extreme_point2))
 
                 for objective in xrange(number_of_objectives):
                     results[algorithm.name][gtechnique.__name__][str(objective)]["median"].append(median(temp_median[objective]))
@@ -596,10 +608,12 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
 
 
         table = []
+        raw_table = []
         table.append(["Generation", "s_o1_median", "s_o1_iqr", "s_o2_median", "s_o2_iqr", "s_o3_median", "s_o3_iqr", "s_igd_median", "s_igd_iqr", "s_hv_median", "s_hv_iqr", "s_spread_median", "s_spread_iqr", "sw_o1_median", "sw_o1_iqr", "sw_o2_median", "sw_o2_iqr", "sw_o3_median", "sw_o3_iqr", "sw_igd_median", "sw_igd_iqr", "sw_hv_median", "sw_hv_iqr", "sw_spread_median", "sw_spread_iqr"])
+        raw_table.append(["Generation", "s_o1_median", "s_o1_iqr", "s_o2_median", "s_o2_iqr", "s_o3_median", "s_o3_iqr", "s_igd_median", "s_igd_iqr", "s_hv_median", "s_hv_iqr", "s_spread_median", "s_spread_iqr", "sw_o1_median", "sw_o1_iqr", "sw_o2_median", "sw_o2_iqr", "sw_o3_median", "sw_o3_iqr", "sw_igd_median", "sw_igd_iqr", "sw_hv_median", "sw_hv_iqr", "sw_spread_median", "sw_spread_iqr"])
 
         # Normalizing
-        normalize = [[1e10, -1e10] for _ in xrange(len(problem[-1].objectives)+3)]
+        normalize = [[1e20, -1e20] for _ in xrange(len(problem[-1].objectives)+3)]
         for gtechnique in gtechniques:
             for objective in xrange(len(problem[-1].objectives)):
                 normalize[objective][0] = min(normalize[objective][0], min(results[algorithm.name][gtechnique.__name__][str(objective)]["median"]))
@@ -610,7 +624,20 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
             normalize[-2][1] = max(normalize[-2][1], max(results[algorithm.name][gtechnique.__name__]["HV"]["median"]))
             normalize[-1][0] = min(normalize[-1][0], min(results[algorithm.name][gtechnique.__name__]["Spread"]["median"]))
             normalize[-1][1] = max(normalize[-1][1], max(results[algorithm.name][gtechnique.__name__]["Spread"]["median"]))
-        print normalize[-2][0], normalize[-2][1]
+
+        for generation in xrange(generations+1):
+            line = [generation]
+            for gtechnique in gtechniques:
+                for objective in xrange(len(problem[-1].objectives)):
+                    line.append(round(results[algorithm.name][gtechnique.__name__][str(objective)]["median"][generation], 3))
+                    line.append(round(results[algorithm.name][gtechnique.__name__][str(objective)]["iqr"][generation], 3))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["IGD"]["median"][generation], 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"][generation], 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["HV"]["median"][generation], 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["HV"]["iqr"][generation], 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["Spread"]["median"][generation], 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"][generation], 8))
+            raw_table.append(line)
 
         for generation in xrange(generations+1):
             line = [generation]
@@ -622,8 +649,8 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
                 line.append(round(results[algorithm.name][gtechnique.__name__]["IGD"]["iqr"][generation] * 100/(normalize[-3][1] - normalize[-3][0]), 8))
                 line.append(round((results[algorithm.name][gtechnique.__name__]["HV"]["median"][generation] - normalize[-2][0])/(normalize[-2][1] - normalize[-2][0]), 8))
                 line.append(round(results[algorithm.name][gtechnique.__name__]["HV"]["iqr"][generation] * 100/(normalize[-2][1] - normalize[-2][0]), 8))
-                line.append(round((results[algorithm.name][gtechnique.__name__]["Spread"]["median"][generation] - normalize[-3][0])/(normalize[-3][1] - normalize[-3][0]), 8))
-                line.append(round(results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"][generation] * 100/(normalize[-3][1] - normalize[-3][0]), 8))
+                line.append(round((results[algorithm.name][gtechnique.__name__]["Spread"]["median"][generation] - normalize[-1][0])/(normalize[-1][1] - normalize[-1][0]), 8))
+                line.append(round(results[algorithm.name][gtechnique.__name__]["Spread"]["iqr"][generation] * 100/(normalize[-1][1] - normalize[-1][0]), 8))
             table.append(line)
 
 
@@ -631,6 +658,10 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
         with open(filename, "wb") as f:
             writer = csv.writer(f)
             writer.writerows(table)
+
+        with open(raw_filename, "wb") as f:
+            writer = csv.writer(f)
+            writer.writerows(raw_table)
         print "done"
 
 

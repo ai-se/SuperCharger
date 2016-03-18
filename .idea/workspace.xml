@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fa16c3e-d1ab-44b0-a16d-99c117196906" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results/Tables/03-15-2016/~$POM3B.xlsx" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/RRS_TABLE__POM3A-p92-d9-o3_NSGAII.datatable" afterPath="$PROJECT_DIR$/Data/RRS_TABLE__POM3A-p92-d9-o3_NSGAII.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/decision_bin_table_POM3A-p92-d9-o3_NSGAII.datatable" afterPath="$PROJECT_DIR$/Data/decision_bin_table_POM3A-p92-d9-o3_NSGAII.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/results_POM3A-p92-d9-o3_NSGAII.datatable" afterPath="$PROJECT_DIR$/Data/results_POM3A-p92-d9-o3_NSGAII.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/summary_.datatable" afterPath="$PROJECT_DIR$/Data/summary_.datatable" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/summary_POM3A-p92-d9-o3_NSGAII.datatable" afterPath="$PROJECT_DIR$/Data/summary_POM3A-p92-d9-o3_NSGAII.datatable" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Graphics/simplified.py" afterPath="$PROJECT_DIR$/Graphics/simplified.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_core.py" afterPath="$PROJECT_DIR$/jmoo_core.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_properties.py" afterPath="$PROJECT_DIR$/jmoo_properties.py" />
     </list>
     <ignored path="SuperCharger.iws" />
@@ -27,131 +30,103 @@
     <favorites_list name="SuperCharger" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6913815">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="jmoo_properties.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="84" column="13" selection-start-line="77" selection-start-column="10" selection-end-line="84" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jmoo_interface.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jmoo_problem.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/jmoo_problem.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-45.555557">
-                  <caret line="83" column="68" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="68" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jmoo_problems.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/jmoo_problems.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.4444447">
-                  <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="simplified.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.32291666">
-                  <caret line="552" column="38" selection-start-line="552" selection-start-column="38" selection-end-line="552" selection-end-column="38" />
-                  <folding>
-                    <element signature="e#686#891#0" expanded="false" />
-                    <element signature="e#5687#10352#0" expanded="false" />
-                    <element signature="e#10428#13795#0" expanded="false" />
-                    <element signature="e#13844#14628#0" expanded="false" />
-                    <element signature="e#14707#18878#0" expanded="false" />
-                    <element signature="e#18954#21001#0" expanded="false" />
-                    <element signature="e#31658#42146#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jmoo_individual.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/jmoo_individual.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="jmoo_core.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/jmoo_core.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="124" column="28" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
-                  <folding>
-                    <element signature="e#1059#1072#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="POM3A.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Problems/POM3/POM3A.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="simplified.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.93366504">
-                  <caret line="376" column="27" selection-start-line="376" selection-start-column="27" selection-end-line="376" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#5687#10352#0" expanded="false" />
-                    <element signature="e#10428#13795#0" expanded="false" />
-                    <element signature="e#13844#14628#0" expanded="false" />
-                    <element signature="e#18954#21001#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="jmoo_properties.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.026446281">
+              <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jmoo_interface.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jmoo_problem.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jmoo_problem.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="22" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simplified.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="606" column="0" selection-start-line="606" selection-start-column="0" selection-end-line="606" selection-end-column="0" />
+              <folding>
+                <element signature="e#686#891#0" expanded="false" />
+                <element signature="e#2214#2626#0" expanded="false" />
+                <element signature="e#2918#3820#0" expanded="false" />
+                <element signature="e#3895#4375#0" expanded="false" />
+                <element signature="e#4458#5817#0" expanded="false" />
+                <element signature="e#5866#6224#0" expanded="false" />
+                <element signature="e#6300#10965#0" expanded="false" />
+                <element signature="e#11041#14408#0" expanded="false" />
+                <element signature="e#14457#15241#0" expanded="false" />
+                <element signature="e#15320#19491#0" expanded="false" />
+                <element signature="e#19567#21614#0" expanded="false" />
+                <element signature="e#34056#44544#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jmoo_individual.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jmoo_individual.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jmoo_core.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jmoo_core.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="124" column="24" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
+              <folding>
+                <element signature="e#1059#1072#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="POM3A.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Problems/POM3/POM3A.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -183,8 +158,8 @@
         <option value="$PROJECT_DIR$/Graphics/Graphs/shaded_std.py" />
         <option value="$PROJECT_DIR$/jmoo_problems.py" />
         <option value="$PROJECT_DIR$/jmoo_core.py" />
-        <option value="$PROJECT_DIR$/jmoo_properties.py" />
         <option value="$PROJECT_DIR$/Graphics/simplified.py" />
+        <option value="$PROJECT_DIR$/jmoo_properties.py" />
       </list>
     </option>
   </component>
@@ -194,8 +169,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="26" />
+    <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="1008" />
   </component>
@@ -278,7 +252,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="03-16-2016" />
+              <option name="myItemId" value="03-18-2016" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -296,10 +270,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SuperCharger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SuperCharger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RawData" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -388,6 +376,11 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -521,17 +514,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="26" width="1920" height="1008" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1008" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15974441" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14376996" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30887187" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30819672" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -562,16 +555,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Results/Charts/Trying_with_weird/figure01_POM3A_HV.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Charts/Trying_with_weird/figure03_POM3A_IGD.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Results/Charts/Trying_with_weird/figure04_POM3B_HV.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -670,7 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27057496">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,41 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_problems.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4444447">
-          <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_problem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-45.555557">
-          <caret line="83" column="68" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="124" column="28" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
-          <folding>
-            <element signature="e#1059#1072#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -840,11 +787,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
+    <entry file="file://$PROJECT_DIR$/Problems/CPM/data/X264_AllMeasurements.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29752067">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jmoo_problems.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.041322">
+          <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jmoo_core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="13" selection-start-line="77" selection-start-column="10" selection-end-line="84" selection-end-column="13" />
-          <folding />
+          <caret line="124" column="24" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
+          <folding>
+            <element signature="e#1059#1072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RawData/PopulationArchives/NSGAII_POM3A_standard_random/0/1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -856,19 +827,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/jmoo_problem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32291666">
-          <caret line="552" column="38" selection-start-line="552" selection-start-column="38" selection-end-line="552" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="606" column="0" selection-start-line="606" selection-start-column="0" selection-end-line="606" selection-end-column="0" />
           <folding>
             <element signature="e#686#891#0" expanded="false" />
-            <element signature="e#5687#10352#0" expanded="false" />
-            <element signature="e#10428#13795#0" expanded="false" />
-            <element signature="e#13844#14628#0" expanded="false" />
-            <element signature="e#14707#18878#0" expanded="false" />
-            <element signature="e#18954#21001#0" expanded="false" />
-            <element signature="e#31658#42146#0" expanded="false" />
+            <element signature="e#2214#2626#0" expanded="false" />
+            <element signature="e#2918#3820#0" expanded="false" />
+            <element signature="e#3895#4375#0" expanded="false" />
+            <element signature="e#4458#5817#0" expanded="false" />
+            <element signature="e#5866#6224#0" expanded="false" />
+            <element signature="e#6300#10965#0" expanded="false" />
+            <element signature="e#11041#14408#0" expanded="false" />
+            <element signature="e#14457#15241#0" expanded="false" />
+            <element signature="e#15320#19491#0" expanded="false" />
+            <element signature="e#19567#21614#0" expanded="false" />
+            <element signature="e#34056#44544#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026446281">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
