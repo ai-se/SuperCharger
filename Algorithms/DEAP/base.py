@@ -227,7 +227,7 @@ class Fitness(object):
             if self_wvalue > other_wvalue:
                 not_equal = True
             elif self_wvalue < other_wvalue:
-                return False                
+                return False
         return not_equal
 
     @property

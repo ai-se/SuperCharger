@@ -29,6 +29,7 @@
 
 from jmoo_properties import *
 from jmoo_core import *
+from temp_modify_initial_population im
    
 """
 ------------
@@ -54,6 +55,7 @@ reportOnly = False
 chartOnly = False
 binsOnly = False
 noReports = True
+modinitpop = False
 for i,arg in enumerate(sys.argv):
     if arg == "-n" or arg == "-N":
         repeats = sys.argv[i+1]
@@ -71,6 +73,8 @@ for i,arg in enumerate(sys.argv):
     if arg == "-binsOnly":
         binsOnly = True
         reportOnly = True
+    if arg == "-modinitpop":
+        modinitpop = True
         
         
 # Build new initial populations if suggested.  Before tests can be performed, a problem requires an initial dataset.
@@ -82,6 +86,8 @@ if build_new_pop:
 
 # Wrap the tests in the jmoo core framework
 tests = jmoo_test(problems, algorithms, GTechniques)
+
+if modinitpop is True:modinitpop(problems, Configurations)
 
 # Define the reports
 if chartOnly == True: reports = [jmoo_chart_report(tests, Configurations)]

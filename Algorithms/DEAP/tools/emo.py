@@ -21,7 +21,7 @@ import jmoo_properties
 # Non-Dominated Sorting   (NSGA-II)  #
 ######################################
 
-def deap_selNSGA2(individuals, k):
+def deap_selNSGA2(individuals, k, first_front_only=False):
     """Apply NSGA-II selection operator on the *individuals*. Usually, the
     size of *individuals* will be larger than *k* because any individual
     present in *individuals* will appear in the returned list at most once.
@@ -43,7 +43,7 @@ def deap_selNSGA2(individuals, k):
         map_fit_ind[ind.fitness].append(ind)
 
     # the inds are not identical
-    pareto_fronts = sortNondominated(individuals, k)
+    pareto_fronts = sortNondominated(individuals, k, first_front_only)
 
     for front in pareto_fronts:
         assignCrowdingDist(front)
