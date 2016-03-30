@@ -35,6 +35,6 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
     f.close()
 
 
-def modinitpop(problems, Configurations):
+def func_modinitpop(problems, Configurations):
     for problem in problems:
         get_initial_datapoints(problem, "ASdsa", "c", Configurations)

@@ -29,7 +29,7 @@
 
 from jmoo_properties import *
 from jmoo_core import *
-from temp_modify_initial_population im
+from temp_modify_initial_population import func_modinitpop
    
 """
 ------------
