@@ -87,7 +87,7 @@ if build_new_pop:
 # Wrap the tests in the jmoo core framework
 tests = jmoo_test(problems, algorithms, GTechniques)
 
-if modinitpop is True:modinitpop(problems, Configurations)
+if modinitpop is True:func_modinitpop(problems, GTechniques, Configurations)
 
 # Define the reports
 if chartOnly == True: reports = [jmoo_chart_report(tests, Configurations)]

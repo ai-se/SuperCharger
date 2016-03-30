@@ -27,7 +27,7 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
         Configurations["Universal"]["Population_Size"]) + "-d" + str(len(problem.decisions)) + "-o" + str(
         len(problem.objectives)) + "-g" + gtechnique.__name__ + "-dataset.txt"
 
-    print "Initial Points are read from file: ", filename, " Algorithm: ", algorithm.name, " GTechnique: ", gtechnique.__name__
+    # print "Initial Points are read from file: ", filename, " Algorithm: ", algorithm.name, " GTechnique: ", gtechnique.__name__
 
     contents= get_content(problem, filename, pop_size, initial_line=True)
     f = open(filename, "w")
@@ -35,6 +35,7 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
     f.close()
 
 
-def func_modinitpop(problems, Configurations):
+def func_modinitpop(problems, gtechniques, Configurations):
     for problem in problems:
-        get_initial_datapoints(problem, "ASdsa", "c", Configurations)
+        for gtechnique in gtechniques:
+            get_initial_datapoints(problem, "ASdsa", "c", Configurations)
