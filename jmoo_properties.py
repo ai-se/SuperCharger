@@ -54,12 +54,24 @@ from Problems.MONRP.monrp import MONRP
 algorithms = [
             # jmoo_NSGAIII(),
             # jmoo_MOEAD_PBI(),
-            jmoo_NSGAII(),
-            jmoo_SPEA2()
+            # jmoo_NSGAII(),
+            # jmoo_SPEA2(),
+            jmoo_GALE()
               ]
 
 
 problems =[
+
+    POM3A(),
+    POM3B(),
+    POM3C(),
+    POM3D(),
+    XOMO_ground(),
+    XOMO_flight(),
+    XOMO_all(),
+    XOMO_osp2(),
+    XOMO_osp(),
+
     dtlz1(7, 3),
     dtlz2(12, 3),
     dtlz3(12, 3),
@@ -74,16 +86,6 @@ problems =[
     dtlz2(17, 8),
     dtlz3(17, 8),
     dtlz4(17, 8),
-
-    # POM3A(),
-    # POM3B(),
-    # POM3C(),
-    # POM3D(),
-    # XOMO_ground(),
-    # XOMO_flight(),
-    # XOMO_all(),
-    # XOMO_osp2(),
-    # XOMO_osp(),
     # NRP(50, 5, 5, 0, 80),
     # MONRP(50, 5, 5, 0, 80)
 
