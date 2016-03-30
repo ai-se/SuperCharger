@@ -36,8 +36,7 @@ def get_content(problem, file, population_size, initial_line=False):
         return objectives
     else:
         for content in contents[1:population_size+1]:
-            decisions = map(float, content.strip().split(","))
-            objectives.append(decisions + problem.evaluate(decisions))
+            objectives.append([float(c) for count,c in enumerate(content.split(","))][-1 * number_of_objectives:])
         return objectives
 
 
@@ -128,6 +127,8 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
     from jmoo_algorithms import get_non_dominated_solutions
     temp_value = [sol.fitness.fitness for sol in
                    get_non_dominated_solutions(problem, population, Configurations)]
+    if len(temp_value) <= 2:
+        temp_value = [sol.fitness.fitness for sol in population]
     return temp_value
 
 
@@ -585,7 +586,7 @@ def build_table_for_epsilon(problem, algorithms, gtechniques, Configurations, ta
                     # The spread calculator would throw error if number of non-dominated solution is less than 1
                     # to circumvent this: I choose to use all the points if such case arise
 
-                    if len(population_fitness) == 1:
+                    if len(population_fitness) <= 2:
                         population_fitness = [sol.fitness.fitness for sol in population]
 
 

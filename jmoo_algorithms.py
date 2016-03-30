@@ -455,7 +455,7 @@ def get_non_dominated_solutions(problem, population, configurations):
 
     # Combine
     from Algorithms.DEAP.tools.emo import deap_selNSGA2
-    dIndividuals = deap_selNSGA2(dIndividuals, k, first_front_only=False)
+    dIndividuals = deap_selNSGA2(dIndividuals, k, first_front_only=True)
 
     # Copy from DEAP structure to JMOO structure
     population = []

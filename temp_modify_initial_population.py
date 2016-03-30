@@ -13,8 +13,6 @@ def get_content(problem, file, population_size, initial_line=False):
         for content in contents[1:population_size+1]:
             decisions = map(float, content.strip().split(","))
             objectives.append(decisions + problem.evaluate(decisions))
-        import pdb
-        pdb.set_trace()
         return ["".join(contents[0])]+[",".join(map(str, o))+"\n" for o in objectives]+["".join(c) for c in contents[population_size+1:]]
 
 
@@ -27,8 +25,7 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
         Configurations["Universal"]["Population_Size"]) + "-d" + str(len(problem.decisions)) + "-o" + str(
         len(problem.objectives)) + "-g" + gtechnique.__name__ + "-dataset.txt"
 
-    # print "Initial Points are read from file: ", filename, " Algorithm: ", algorithm.name, " GTechnique: ", gtechnique.__name__
-
+    print "Initial Points are read from file: ", filename
     contents= get_content(problem, filename, pop_size, initial_line=True)
     f = open(filename, "w")
     for content in contents: f.write(content)
@@ -38,4 +35,4 @@ def get_initial_datapoints(problem, algorithm, gtechnique, Configurations):
 def func_modinitpop(problems, gtechniques, Configurations):
     for problem in problems:
         for gtechnique in gtechniques:
-            get_initial_datapoints(problem, "ASdsa", "c", Configurations)
+            get_initial_datapoints(problem, "ASdsa", gtechnique, Configurations)

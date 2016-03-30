@@ -87,21 +87,23 @@ if build_new_pop:
 # Wrap the tests in the jmoo core framework
 tests = jmoo_test(problems, algorithms, GTechniques)
 
-if modinitpop is True:func_modinitpop(problems, GTechniques, Configurations)
+if modinitpop is True:func_modinitpop(problems, GTechniques,
+                                      Configurations)
 
 # Define the reports
-if chartOnly == True: reports = [jmoo_chart_report(tests, Configurations)]
+elif chartOnly == True: reports = [jmoo_chart_report(tests, Configurations)]
 elif binsOnly: reports = [jmoo_decision_report(tests)]
 
 elif reportOnly: reports = [jmoo_stats_report(tests, Configurations)]
 elif noReports: reports = []
 else: reports = [jmoo_stats_report(tests), jmoo_decision_report(tests), jmoo_chart_report(tests)]
 
-# Associate core with tests and reports
-core = JMOO(tests, reports, Configurations)
+if modinitpop is False:
+    # Associate core with tests and reports
+    core = JMOO(tests, reports, Configurations)
 
-# Perform the tests
-if not reportOnly: core.doTests()
+    # Perform the tests
+    if not reportOnly: core.doTests()
 
-# Prepare the reports
-core.doReports(tag)
+    # Prepare the reports
+    core.doReports(tag)
