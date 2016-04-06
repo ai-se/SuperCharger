@@ -3,8 +3,7 @@ from __future__ import division
 import matplotlib.pyplot as plt
 
 algorithms = ["NSGAII", "SPEA2", "GALE"]
-# problems = ["POM3A", "POM3B", "POM3C", "POM3D", "xomo_ground", "xomo_flight", "xomo_all", "xomoo2", "xomo_osp"]
-problems = ["xomo_flight"]
+problems = ["POM3A", "POM3B", "POM3C", "POM3D", "xomo_ground", "xomo_flight", "xomo_all", "xomoo2", "xomo_osp"]
 
 from os import listdir
 import pandas as pd

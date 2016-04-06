@@ -2,37 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fa16c3e-d1ab-44b0-a16d-99c117196906" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_01_POM3A_NSGAII.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_03_POM3A_SPEA2.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_05_POM3A_GALE.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_07_POM3B_NSGAII.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_09_POM3B_SPEA2.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_11_POM3B_GALE.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_13_POM3C_NSGAII.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_15_POM3C_SPEA2.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_17_POM3C_GALE.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_19_POM3D_NSGAII.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_21_POM3D_SPEA2.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_23_POM3D_GALE.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_25_xomo_ground_NSGAII.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_27_xomo_ground_SPEA2.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_29_xomo_ground_GALE.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_31_xomo_flight_NSGAII.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_33_xomo_flight_SPEA2.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_35_xomo_flight_GALE.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_37_xomo_all_NSGAII.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_39_xomo_all_SPEA2.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_41_xomo_all_GALE.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_43_xomoo2_NSGAII.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_45_xomoo2_SPEA2.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_47_xomoo2_GALE.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_49_xomo_osp_NSGAII.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_51_xomo_osp_SPEA2.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_53_xomo_osp_GALE.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eval_numbers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_interface.py" afterPath="$PROJECT_DIR$/jmoo_interface.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jmoo_properties.py" afterPath="$PROJECT_DIR$/jmoo_properties.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/raw_table_01_xomo_flight_NSGAII.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/raw_table_03_xomo_flight_SPEA2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/raw_table_05_xomo_flight_GALE.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/table01_xomo_flight_NSGAII.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/table03_xomo_flight_SPEA2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/table05_xomo_flight_GALE.csv" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_hv_median.png" afterPath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_hv_median.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_igd_median.png" afterPath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_igd_median.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_spread_median.png" afterPath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_spread_median.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_hv_median.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_hv_median.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_igd_median.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_igd_median.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_spread_median.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_spread_median.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/process.py" afterPath="$PROJECT_DIR$/Supercharger_post_process/process.py" />
     </list>
     <ignored path="SuperCharger.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,8 +51,8 @@
       <file leaf-file-name="jmoo_interface.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7627119">
-              <caret line="106" column="46" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.22209695">
+              <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
               <folding>
                 <element signature="e#1064#1093#0" expanded="true" />
               </folding>
@@ -111,7 +93,7 @@
       <file leaf-file-name="simplified.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-45.666668">
+            <state vertical-scroll-proportion="0.0">
               <caret line="544" column="19" selection-start-line="544" selection-start-column="12" selection-end-line="544" selection-end-column="19" />
               <folding>
                 <element signature="e#686#891#0" expanded="false" />
@@ -178,7 +160,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1932" />
+    <option name="x" value="-1920" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="1008" />
@@ -208,7 +190,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -262,6 +243,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -350,6 +332,11 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -483,17 +470,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1932" y="23" width="1920" height="1008" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1920" y="23" width="1920" height="1008" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15015975" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1517572" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42545262" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42545262" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -528,6 +515,69 @@
     <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="37" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
+          <folding>
+            <element signature="e#1078#1107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1064#1093#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eval_numbers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_01_POM3A_NSGAII.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_05_POM3A_GALE.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="544" column="19" selection-start-line="544" selection-start-column="12" selection-end-line="544" selection-end-column="19" />
+          <folding>
+            <element signature="e#686#891#0" expanded="false" />
+            <element signature="e#2195#2607#0" expanded="false" />
+            <element signature="e#3941#4421#0" expanded="false" />
+            <element signature="e#5626#5984#0" expanded="false" />
+            <element signature="e#6060#10725#0" expanded="false" />
+            <element signature="e#10801#14168#0" expanded="false" />
+            <element signature="e#15080#19251#0" expanded="false" />
+            <element signature="e#19327#21378#0" expanded="false" />
+            <element signature="e#34831#42013#0" expanded="false" />
+            <element signature="e#42090#52578#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#1078#1107#0" expanded="true" />
@@ -539,7 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -596,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -679,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.041322">
           <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -722,7 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="51" column="44" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,7 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -777,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.70037454">
           <caret line="457" column="71" selection-start-line="457" selection-start-column="71" selection-end-line="457" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -785,13 +828,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-45.666668">
+        <state vertical-scroll-proportion="0.0">
           <caret line="544" column="19" selection-start-line="544" selection-start-column="12" selection-end-line="544" selection-end-column="19" />
           <folding>
             <element signature="e#686#891#0" expanded="false" />
@@ -812,7 +854,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,7 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,9 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="118" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="118" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -838,7 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -846,7 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,8 +938,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7627119">
-          <caret line="106" column="46" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.22209695">
+          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
           <folding>
             <element signature="e#1064#1093#0" expanded="true" />
           </folding>
