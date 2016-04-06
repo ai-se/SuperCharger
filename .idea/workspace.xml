@@ -2,19 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fa16c3e-d1ab-44b0-a16d-99c117196906" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/raw_table_01_xomo_flight_NSGAII.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/raw_table_03_xomo_flight_SPEA2.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/raw_table_05_xomo_flight_GALE.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/table01_xomo_flight_NSGAII.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/table03_xomo_flight_SPEA2.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Data/table05_xomo_flight_GALE.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_hv_median.png" afterPath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_hv_median.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_igd_median.png" afterPath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_igd_median.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_spread_median.png" afterPath="$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_spread_median.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_hv_median.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_hv_median.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_igd_median.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_igd_median.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_spread_median.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Results/xomo_flight_s_spread_median.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Supercharger_post_process/process.py" afterPath="$PROJECT_DIR$/Supercharger_post_process/process.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/process_comparision.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Supercharger_post_process/process_graphs.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_01_POM3A_NSGAII.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_01_POM3A_NSGAII.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_03_POM3A_SPEA2.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_03_POM3A_SPEA2.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_05_POM3A_GALE.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_05_POM3A_GALE.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_07_POM3B_NSGAII.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_07_POM3B_NSGAII.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_09_POM3B_SPEA2.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_09_POM3B_SPEA2.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_11_POM3B_GALE.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_11_POM3B_GALE.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_13_POM3C_NSGAII.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_13_POM3C_NSGAII.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_15_POM3C_SPEA2.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_15_POM3C_SPEA2.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_17_POM3C_GALE.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_17_POM3C_GALE.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_19_POM3D_NSGAII.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_19_POM3D_NSGAII.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_21_POM3D_SPEA2.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_21_POM3D_SPEA2.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_23_POM3D_GALE.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_23_POM3D_GALE.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_25_xomo_ground_NSGAII.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_25_xomo_ground_NSGAII.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_27_xomo_ground_SPEA2.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_27_xomo_ground_SPEA2.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_29_xomo_ground_GALE.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_29_xomo_ground_GALE.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_31_xomo_flight_NSGAII.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_31_xomo_flight_NSGAII.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_33_xomo_flight_SPEA2.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_33_xomo_flight_SPEA2.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_35_xomo_flight_GALE.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_35_xomo_flight_GALE.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_37_xomo_all_NSGAII.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_37_xomo_all_NSGAII.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_39_xomo_all_SPEA2.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_39_xomo_all_SPEA2.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_41_xomo_all_GALE.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_41_xomo_all_GALE.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_43_xomoo2_NSGAII.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_43_xomoo2_NSGAII.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_45_xomoo2_SPEA2.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_45_xomoo2_SPEA2.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_47_xomoo2_GALE.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_47_xomoo2_GALE.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_49_xomo_osp_NSGAII.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_49_xomo_osp_NSGAII.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_51_xomo_osp_SPEA2.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_51_xomo_osp_SPEA2.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_53_xomo_osp_GALE.csv" afterPath="$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_53_xomo_osp_GALE.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SuperCharger.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,76 +53,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="jmoo_properties.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
+      <file leaf-file-name="process_comparision.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Supercharger_post_process/process_comparision.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="93" column="37" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
+              <caret line="19" column="117" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="117" />
               <folding>
-                <element signature="e#1078#1107#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jmoo_interface.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
+      <file leaf-file-name="POM3C_s_igd_median.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/POM3C_s_igd_median.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="process_graphs.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Supercharger_post_process/process_graphs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22209695">
-              <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.2542373">
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding>
-                <element signature="e#1064#1093#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="eval_numbers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/eval_numbers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="raw_table_01_POM3A_NSGAII.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_01_POM3A_NSGAII.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="raw_table_05_POM3A_GALE.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_05_POM3A_GALE.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simplified.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="544" column="19" selection-start-line="544" selection-start-column="12" selection-end-line="544" selection-end-column="19" />
-              <folding>
-                <element signature="e#686#891#0" expanded="false" />
-                <element signature="e#2195#2607#0" expanded="false" />
-                <element signature="e#3941#4421#0" expanded="false" />
-                <element signature="e#5626#5984#0" expanded="false" />
-                <element signature="e#6060#10725#0" expanded="false" />
-                <element signature="e#10801#14168#0" expanded="false" />
-                <element signature="e#15080#19251#0" expanded="false" />
-                <element signature="e#19327#21378#0" expanded="false" />
-                <element signature="e#34831#42013#0" expanded="false" />
-                <element signature="e#42090#52578#0" expanded="false" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,6 +124,8 @@
         <option value="$PROJECT_DIR$/jmoo_properties.py" />
         <option value="$PROJECT_DIR$/eval_numbers.py" />
         <option value="$PROJECT_DIR$/jmoo_interface.py" />
+        <option value="$PROJECT_DIR$/Supercharger_post_process/process_comparision.py" />
+        <option value="$PROJECT_DIR$/Supercharger_post_process/process_graphs.py" />
       </list>
     </option>
   </component>
@@ -237,7 +212,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Results_evals" />
+              <option name="myItemId" value="Data_evals" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -471,16 +446,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="23" width="1920" height="1008" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1517572" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42545262" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42545262" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -489,7 +465,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
@@ -512,252 +487,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="37" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
-          <folding>
-            <element signature="e#1078#1107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1064#1093#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eval_numbers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_01_POM3A_NSGAII.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_05_POM3A_GALE.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="544" column="19" selection-start-line="544" selection-start-column="12" selection-end-line="544" selection-end-column="19" />
-          <folding>
-            <element signature="e#686#891#0" expanded="false" />
-            <element signature="e#2195#2607#0" expanded="false" />
-            <element signature="e#3941#4421#0" expanded="false" />
-            <element signature="e#5626#5984#0" expanded="false" />
-            <element signature="e#6060#10725#0" expanded="false" />
-            <element signature="e#10801#14168#0" expanded="false" />
-            <element signature="e#15080#19251#0" expanded="false" />
-            <element signature="e#19327#21378#0" expanded="false" />
-            <element signature="e#34831#42013#0" expanded="false" />
-            <element signature="e#42090#52578#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1078#1107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
-          <folding>
-            <element signature="e#1064#1093#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="130" column="64" selection-start-line="130" selection-start-column="64" selection-end-line="130" selection-end-column="64" />
-          <folding>
-            <element signature="e#686#891#0" expanded="false" />
-            <element signature="e#2195#2607#0" expanded="false" />
-            <element signature="e#3941#4421#0" expanded="false" />
-            <element signature="e#5626#5984#0" expanded="false" />
-            <element signature="e#6060#10725#0" expanded="false" />
-            <element signature="e#10801#14168#0" expanded="false" />
-            <element signature="e#15080#19251#0" expanded="false" />
-            <element signature="e#19327#21378#0" expanded="false" />
-            <element signature="e#34831#42013#0" expanded="false" />
-            <element signature="e#42090#52578#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp_modify_initial_population.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_properties.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1078#1107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
-          <folding>
-            <element signature="e#1064#1093#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/simplified.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="130" column="64" selection-start-line="130" selection-start-column="64" selection-end-line="130" selection-end-column="64" />
-          <folding>
-            <element signature="e#686#891#0" expanded="false" />
-            <element signature="e#2195#2607#0" expanded="false" />
-            <element signature="e#3941#4421#0" expanded="false" />
-            <element signature="e#5626#5984#0" expanded="false" />
-            <element signature="e#6060#10725#0" expanded="false" />
-            <element signature="e#10801#14168#0" expanded="false" />
-            <element signature="e#15080#19251#0" expanded="false" />
-            <element signature="e#19327#21378#0" expanded="false" />
-            <element signature="e#34831#42013#0" expanded="false" />
-            <element signature="e#42090#52578#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp_modify_initial_population.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PerformanceMetrics/IGD/IGD_Calculation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27057496">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/Graphs/shaded_std.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="30" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RawData/PopulationArchives/MOEAD_PBI_POM3A_standard_random/0/1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/CPM/data/X264_AllMeasurements.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29752067">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_problems.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.041322">
-          <caret line="768" column="0" selection-start-line="768" selection-start-column="0" selection-end-line="768" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RawData/PopulationArchives/NSGAII_POM3A_standard_random/0/1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_individual.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Algorithms/GALE/Fastmap/lib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7996324">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphics/charter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-223.7037">
-          <caret line="714" column="78" selection-start-line="714" selection-start-column="78" selection-end-line="714" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PerformanceMetrics/Spread/Spread.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -864,13 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="118" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Results/Tables/03-30-2016/raw_table_01_POM3A_NSGAII.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -897,7 +619,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="93" column="37" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
           <folding>
-            <element signature="e#1078#1107#0" expanded="true" />
+            <element signature="e#1078#1107#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -907,7 +629,35 @@
         <state vertical-scroll-proportion="0.30508474">
           <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="73" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_05_POM3A_GALE.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+          <folding>
+            <element signature="e#1064#1093#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -920,28 +670,160 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_01_POM3A_NSGAII.csv">
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/POM3A_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/POM3B_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/xomo_flight_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/xomoo2_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/xomo_osp_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/xomo_ground_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/xomo_flight_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/xomo_all_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/POM3A_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/POM3B_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/POM3C_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/POM3D_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_all_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_ground_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_osp_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomoo2_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/xomo_osp_s_spread_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/xomo_osp_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/xomo_ground_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/POM3D_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/POM3D_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_all_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/RGraphs/xomo_flight_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/POM3A_s_hv_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Graphs/POM3C_s_igd_median.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Data_evals/raw_table_01_POM3A_NSGAII.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="316" selection-start-line="0" selection-start-column="295" selection-end-line="0" selection-end-column="316" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/Results_evals/raw_table_05_POM3A_GALE.csv">
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/process_comparision.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jmoo_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22209695">
-          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+          <caret line="19" column="117" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="117" />
           <folding>
-            <element signature="e#1064#1093#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Supercharger_post_process/process_graphs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2542373">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
