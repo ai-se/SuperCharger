@@ -30,6 +30,7 @@
 from jmoo_properties import *
 from jmoo_core import *
 from temp_modify_initial_population import func_modinitpop
+from eval_numbers import func_eval_numbers
    
 """
 ------------
@@ -56,6 +57,7 @@ chartOnly = False
 binsOnly = False
 noReports = True
 modinitpop = False
+evalnumbers = False
 for i,arg in enumerate(sys.argv):
     if arg == "-n" or arg == "-N":
         repeats = sys.argv[i+1]
@@ -75,6 +77,8 @@ for i,arg in enumerate(sys.argv):
         reportOnly = True
     if arg == "-modinitpop":
         modinitpop = True
+    if arg == "-evalnumbers":
+        evalnumbers = True
         
         
 # Build new initial populations if suggested.  Before tests can be performed, a problem requires an initial dataset.
@@ -90,6 +94,8 @@ tests = jmoo_test(problems, algorithms, GTechniques)
 if modinitpop is True:func_modinitpop(problems, GTechniques,
                                       Configurations)
 
+if evalnumbers is True: func_eval_numbers(problems, algorithms, GTechniques, Configurations)
+
 # Define the reports
 elif chartOnly == True: reports = [jmoo_chart_report(tests, Configurations)]
 elif binsOnly: reports = [jmoo_decision_report(tests)]
@@ -98,7 +104,7 @@ elif reportOnly: reports = [jmoo_stats_report(tests, Configurations)]
 elif noReports: reports = []
 else: reports = [jmoo_stats_report(tests), jmoo_decision_report(tests), jmoo_chart_report(tests)]
 
-if modinitpop is False:
+if modinitpop is False or evalnumbers is False:
     # Associate core with tests and reports
     core = JMOO(tests, reports, Configurations)
 

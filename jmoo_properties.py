@@ -62,30 +62,30 @@ algorithms = [
 
 problems =[
 
-    # POM3A(),
-    # POM3B(),
-    # POM3C(),
-    # POM3D(),
-    # XOMO_ground(),
-    # XOMO_flight(),
-    # XOMO_all(),
-    # XOMO_osp2(),
-    # XOMO_osp(),
+    POM3A(),
+    POM3B(),
+    POM3C(),
+    POM3D(),
+    XOMO_ground(),
+    XOMO_flight(),
+    XOMO_all(),
+    XOMO_osp2(),
+    XOMO_osp(),
     # #
     # dtlz1(7, 3),
     # dtlz2(12, 3),
     # dtlz3(12, 3),
     # dtlz4(12, 3),
 
-    dtlz1(9, 5),
-    dtlz2(14, 5),
-    dtlz3(14, 5),
-    dtlz4(14, 5),
-
-    dtlz1(12, 8),
-    dtlz2(17, 8),
-    dtlz3(17, 8),
-    dtlz4(17, 8),
+    # dtlz1(9, 5),
+    # dtlz2(14, 5),
+    # dtlz3(14, 5),
+    # dtlz4(14, 5),
+    #
+    # dtlz1(12, 8),
+    # dtlz2(17, 8),
+    # dtlz3(17, 8),
+    # dtlz4(17, 8),
     # NRP(50, 5, 5, 0, 80),
     # MONRP(50, 5, 5, 0, 80)
 
